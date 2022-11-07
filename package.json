@@ -1,0 +1,13 @@
+{
+  "dependencies": {
+    "concatenate": "^0.0.2",
+    "node.js": "^0.0.1-security",
+    "npm": "^8.19.3",
+    "sass": "^1.56.0",
+    "scripts": "^0.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.27.0",
+    "eslint-plugin-react": "^7.31.10"
+  }
+}
