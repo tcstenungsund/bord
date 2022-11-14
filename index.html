@@ -31,12 +31,40 @@
 				navigator.serviceWorker && navigator.serviceWorker.register("./sw.js");
 			});
 		}
+		if ('NDEFReader' in window) {
+
+    	// Look if have permissions for a nfc is granted or not if permissions is not granded make a button that give browser permissions for nfc
+    	navigator.permissions.query({name:'nfc'}).then((result) => {
+        	if (result.state === 'granted') {
+          		
+
+        	} else if (result.state === 'prompt') {
+            	// Show a scan button.
+            	document.querySelector("#scanButton").style.display = "block";
+            	document.querySelector("#scanButton").onclick = event => {
+            	// Prompt user to allow to send and receive info when they tap NFC devices.
+            	document.querySelector("#scanButton").style.display = "none";
+            	
+
+            	};
+        	}
+      	});
+    
+		}
+		else{
+    	// If device have no nfc reader or browser does not support NDEFReader
+    	
+    	document.body.style.backgroundColor = "#0000ff";
+		}
+
 	</script>
 	<script defer src="./main.js"></script>
  </head>
 
  <body>
 <h1>hej</h1>
+
+<button id = "scanButton">Scan</button>
 
  </body>
 
