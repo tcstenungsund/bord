@@ -1,4 +1,20 @@
 const cacheName = "cache2"; // Change value to force update
+const urls = [
+	"/",
+	"android-chrome-192x192.png", // Favicon, Android Chrome M39+ with 4.0 screen density
+	"android-chrome-512x512.png", // Favicon, Android Chrome M47+ Splash screen with 4.0 screen density
+	"apple-touch-icon.png", // Favicon, Apple default
+	"browserconfig.xml", // IE11 icon configuration file
+	"favicon.ico", // Favicon, IE and fallback for other browsers
+	"favicon-16x16.png", // Favicon, default
+	"favicon-32x32.png", // Favicon, Safari on Mac OS
+	"index.html", // Main HTML file
+	"main.js", // Main Javascript file
+	"manifest.json", // Manifest file
+	"mstile-150x150.png", // Favicon, Windows 8 / IE11
+	"safari-pinned-tab.svg", // Favicon, Safari pinned tab
+	"css/index.css"
+]
 
 self.addEventListener("install", event => {
 	// Kick out the old service worker
@@ -6,22 +22,7 @@ self.addEventListener("install", event => {
 
 	event.waitUntil(
 		caches.open(cacheName).then(cache => {
-			return cache.addAll([
-				"/",
-				"android-chrome-192x192.png", // Favicon, Android Chrome M39+ with 4.0 screen density
-				"android-chrome-512x512.png", // Favicon, Android Chrome M47+ Splash screen with 4.0 screen density
-				"apple-touch-icon.png", // Favicon, Apple default
-				"browserconfig.xml", // IE11 icon configuration file
-				"favicon.ico", // Favicon, IE and fallback for other browsers
-				"favicon-16x16.png", // Favicon, default
-				"favicon-32x32.png", // Favicon, Safari on Mac OS
-				"index.html", // Main HTML file
-				"main.js", // Main Javascript file
-				"manifest.json", // Manifest file
-				"mstile-150x150.png", // Favicon, Windows 8 / IE11
-				"safari-pinned-tab.svg", // Favicon, Safari pinned tab
-				"css/index.css"
-			]);
+			return cache.addAll(urls);
 		})
 	);
 });
