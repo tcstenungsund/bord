@@ -19,7 +19,7 @@ self.addEventListener("install", event => {
 				//"android-chrome-256x256.png", // Favicon, Android Chrome M47+ Splash screen with 1.5 screen density
 				//"android-chrome-384x384.png", // Favicon, Android Chrome M47+ Splash screen with 3.0 screen density
 				"android-chrome-512x512.png", // Favicon, Android Chrome M47+ Splash screen with 4.0 screen density
-				"apple-touch-icon.png", // Favicon, Apple default
+				//"apple-touch-icon.png", // Favicon, Apple default
 				/*
 				"apple-touch-icon-57x57.png", // Apple iPhone, Non-retina with iOS6 or prior
 				"apple-touch-icon-60x60.png", // Apple iPhone, Non-retina with iOS7
