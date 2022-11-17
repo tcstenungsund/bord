@@ -61,7 +61,7 @@ self.addEventListener("fetch", event => {
 
 self.addEventListener("NDEFReader", event => {
 	const ndef = new NDEFReader();
-	const text = document.querySelector("h1");
+	//const text = document.querySelector("h1");
     //document.body.style.backgroundColor = "#00FFFF";
 
     // Start scaning for NFC tags
@@ -73,7 +73,8 @@ self.addEventListener("NDEFReader", event => {
         });
         // If you reading a tag successful 
         ndef.addEventListener("reading", ({ message, serialNumber }) => {
-			text.innerHTML = message + ", " + serialNumber;
+			//text.innerHTML = message + ", " + serialNumber;
+			return  `<h2>${message} </h2>`;
         });
 
         // If it get a error while starting the scan
