@@ -8,13 +8,15 @@
 	<link rel="canonical" href="https://simplepwa.com" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	
+	
 	<!-- Icons and Colors -->
 
 
 	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-	<link rel="manifest" href="/site.webmanifest">
+	<!--<link rel="manifest" href="/site.webmanifest">-->
+	<link rel="manifest" href="manifest.json">
 	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
 	<meta name="msapplication-TileColor" content="#da532c">
 	<meta name="theme-color" content="#ffffff">
@@ -26,49 +28,51 @@
 	<link rel="stylesheet" href="css/index.css">
 
 
+
 	<!-- Javscript -->
 	<script>
-		if ("serviceWorker" in navigator) {
-			window.addEventListener("load", () => {
-				navigator.serviceWorker && navigator.serviceWorker.register("./sw.js");
-			});
-		}
-
-		if ('NDEFReader' in window) {
-
-    	// Look if have permissions for a nfc is granted or not if permissions is not granded make a button that give browser permissions for nfc
-    	navigator.permissions.query({name:'nfc'}).then((result) => {
-        	if (result.state === 'granted') {
-          		
-
-        	} else if (result.state === 'prompt') {
-            	// Show a scan button.
-            	document.querySelector("#scanButton").style.display = "block";
-            	document.querySelector("#scanButton").onclick = event => {
-            	// Prompt user to allow to send and receive info when they tap NFC devices.
-            	document.querySelector("#scanButton").style.display = "none";
-            	
-
-            	};
-        	}
-      	});
-    
-		}
-		else{
-    	// If device have no nfc reader or browser does not support NDEFReader
-    	
-    	document.body.style.backgroundColor = "#0000ff";
-		}
 
 	</script>
 	<script defer src="./main.js"></script>
  </head>
 
  <body>
-<h1>hej</h1>
+	<h1>hej</h1>
 
-<button id = "scanButton">Scan</button>
+	<button id = "scanButton">Scan</button>
 
+
+
+	<script>
+		if ("serviceWorker" in navigator) {
+			window.addEventListener("load", () => {
+				navigator.serviceWorker && navigator.serviceWorker.register("./sw.js");
+
+				if ('NDEFReader' in window) {
+
+				// Look if have permissions for a nfc is granted or not if permissions is not granded make a button that give browser permissions for nfc
+				navigator.permissions.query({name:'nfc'}).then((result) => {
+					if (result.state === 'granted') {
+						console.log("permissions is granted");
+
+					} else if (result.state === 'prompt') {
+						// Show a scan button.
+						document.querySelector("#scanButton").style.display = "block";
+						document.querySelector("#scanButton").onclick = event => {
+						// Prompt user to allow to send and receive info when they tap NFC devices.
+						document.querySelector("#scanButton").style.display = "none";
+						};
+					}
+  				});
+				} else {
+					// If device have no nfc reader or browser does not support NDEFReader
+					document.body.style.backgroundColor = "#0000ff";
+				}
+			});
+		}
+		
+
+	</script>
  </body>
 
  </html>
