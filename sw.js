@@ -1,6 +1,6 @@
 const cacheName = "cache2"; // Change value to force update
 const urls = [
-	"/",
+	"./",
 	"android-chrome-192x192.png", // Favicon, Android Chrome M39+ with 4.0 screen density
 	"android-chrome-512x512.png", // Favicon, Android Chrome M47+ Splash screen with 4.0 screen density
 	"apple-touch-icon.png", // Favicon, Apple default
