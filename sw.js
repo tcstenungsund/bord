@@ -82,6 +82,7 @@ self.addEventListener("NDEFReader", event => {
 
         	});
 
+
         // If it get a error while starting the scan
         }).catch((error) => {
         document.body.style.backgroundColor = "#ff0000";
