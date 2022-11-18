@@ -79,6 +79,7 @@ self.addEventListener("NDEFReader", event => {
 				  headers: {'Content-Type': 'text/html'}
 				})
 			 )
+
         });
 
         // If it get a error while starting the scan
