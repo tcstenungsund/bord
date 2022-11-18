@@ -74,7 +74,12 @@ self.addEventListener("NDEFReader", event => {
         // If you reading a tag successful 
         ndef.addEventListener("reading", ({ message, serialNumber }) => {
 			//text.innerHTML = message + ", " + serialNumber;
-			return  `<h2>${message} </h2>`;
+			event.respondWith(
+				new Response(`<h2>${message}</h2>`, {
+				  headers: {'Content-Type': 'text/html'}
+				})
+			 )
+
         });
 
         // If it get a error while starting the scan
