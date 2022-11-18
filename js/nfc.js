@@ -3,8 +3,6 @@ const color = document.body;
 const text = document.querySelector("h1");
 const info = document.querySelector("h2");
 
-// Kod ska till service worker 
-
 // Function scan after a nfc tag
 function startScanning(){
     // Get refercens to nfc reader
@@ -37,36 +35,7 @@ function startScanning(){
     
 }
 
-// Slut på koden som ska till service worker
 
-
-// Look if the device have NFC
-if ('NDEFReader' in window) {
-    text.innerHTML = "Look if the device have NFC";
-
-    color.style.backgroundColor = "#ffff00";
-
-    // Look if have permissions for a nfc is granted or not if permissions is not granded make a button that give browser permissions for nfc
-    navigator.permissions.query({name:'nfc'}).then((result) => {
-        if (result.state === 'granted') {
-          startScanning();
-        } else if (result.state === 'prompt') {
-            // Show a scan button.
-            document.querySelector("#scanButton").style.display = "block";
-            document.querySelector("#scanButton").onclick = event => {
-            // Prompt user to allow to send and receive info when they tap NFC devices.
-            document.querySelector("#scanButton").style.display = "none";
-            startScanning();
-            };
-        }
-      });
-    
-}
-else{
-    // If device have no nfc reader or browser does not support NDEFReader
-    text.innerHTML = "No nfc reader or browser does not support NDEFReader";
-    color.style.backgroundColor = "#0000ff";
-}
 
 function delay(time) {
     return new Promise(resolve => setTimeout(resolve, time));
