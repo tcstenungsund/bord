@@ -40,7 +40,7 @@
 
 	<button id = "scanButton">Scan</button>
 
-
+	<h2></h2>
 
 	<script>
 		if ("serviceWorker" in navigator) {
@@ -69,6 +69,16 @@
 				}
 			});
 		}
+
+		window.addEventListener("message", (event) => {
+  				if (event.origin !== "sw.js"){
+					return;
+				}
+				else{
+					document.querySelector("h2").innerHTML = event;
+				}
+    			
+		}, false);
 		
 
 	</script>
