@@ -62,4 +62,5 @@ self.addEventListener("fetch", event => {
 self.addEventListener("NDEFReader", event => {
 	importScripts('js/script.js');
 	startScanning();
+
 });
