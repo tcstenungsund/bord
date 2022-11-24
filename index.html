@@ -42,6 +42,13 @@
 
 	<h2></h2>
 
+
+	<script type="module" src="js/nfc.js"></script>
+	<script type="module">
+
+		import { startScanning } from "./js/nfc.js";
+
+
 	<script type="module" src="js/nfc.js"></script>
 	<script type="module">
 
@@ -59,6 +66,7 @@
 
 		if(window.Worker){
 
+
 			if ('NDEFReader' in window) {
 						// Look if have permissions for a nfc is granted or not if permissions is not granded make a button that give browser permissions for nfc
 						navigator.permissions.query({name:'nfc'}).then((result) => {
@@ -70,7 +78,12 @@
 								document.querySelector("#scanButton").onclick = event => {
 									// Prompt user to allow to send and receive info when they tap NFC devices.
 									document.querySelector("#scanButton").style.display = "none";
-									
+
+									work.onmessage = (evt) => { number = evt.data; };
+
+									if(evt.data === 1){
+										startScanning();
+									}
 								};
 							}
 						});
@@ -78,6 +91,7 @@
 						// If device have no nfc reader or browser does not support NDEFReader
 						document.body.style.backgroundColor = "#0000ff";
 					}
+
 
 			var work = new Worker("./worker.js");
 			work.postMessage({ a:1});
@@ -93,11 +107,14 @@
 					});
 					
 					
+
 				}
 					
 			};
 			
 		}
+
+
 		
 
 	</script>
