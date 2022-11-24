@@ -42,45 +42,60 @@
 
 	<h2></h2>
 
-	<script src="js/nfc.js"></script>
 
-	<script>
+	<script type="module" src="js/nfc.js"></script>
+	<script type="module">
+
+		import { startScanning } from "./js/nfc.js";
+
+
+
 		if ("serviceWorker" in navigator) {
 			window.addEventListener("load", () => {
 				navigator.serviceWorker && navigator.serviceWorker.register("./sw.js");
-
-				if ('NDEFReader' in window) {
-
-				// Look if have permissions for a nfc is granted or not if permissions is not granded make a button that give browser permissions for nfc
-				navigator.permissions.query({name:'nfc'}).then((result) => {
-					if (result.state === 'granted') {
-						console.log("permissions is granted");
-
-					} else if (result.state === 'prompt') {
-						// Show a scan button.
-						document.querySelector("#scanButton").style.display = "block";
-						document.querySelector("#scanButton").onclick = event => {
-						// Prompt user to allow to send and receive info when they tap NFC devices.
-						document.querySelector("#scanButton").style.display = "none";
-						};
-					}
-  				});
-				} else {
-					// If device have no nfc reader or browser does not support NDEFReader
-					document.body.style.backgroundColor = "#0000ff";
-				}
 			});
+
+			
 		}
 
-		window.addEventListener("message", (event) => {
-  				if (event.origin !== "sw.js"){
-					return;
+		if(window.Worker){
+			var work = new Worker("./worker.js");
+			work.postMessage({ a:1});
+			work.onmessage = (evt) => { 
+				if(evt.data){
+					
+					if ('NDEFReader' in window) {
+						// Look if have permissions for a nfc is granted or not if permissions is not granded make a button that give browser permissions for nfc
+						navigator.permissions.query({name:'nfc'}).then((result) => {
+							if (result.state === 'granted') {
+								if(evt.data === 1){
+									startScanning();
+								}
+
+							} else if (result.state === 'prompt') {
+								// Show a scan button.
+								document.querySelector("#scanButton").style.display = "block";
+								document.querySelector("#scanButton").onclick = event => {
+									// Prompt user to allow to send and receive info when they tap NFC devices.
+									document.querySelector("#scanButton").style.display = "none";
+									work.onmessage = (evt) => { number = evt.data; };
+
+									if(evt.data === 1){
+										startScanning();
+									}
+								};
+							}
+						});
+					} else {
+						// If device have no nfc reader or browser does not support NDEFReader
+						document.body.style.backgroundColor = "#0000ff";
+					}
 				}
-				else{
-					document.querySelector("h2").innerHTML = event;
-				}
-    			
-		}, false);
+					
+			};
+			
+		}
+
 		
 
 	</script>
