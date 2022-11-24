@@ -2,6 +2,7 @@
   "type": "module",
   "dependencies": {
     "concatenate": "^0.0.2",
+    "jsdom": "^20.0.3",
     "live-server": "^1.2.2",
     "node.js": "^0.0.1-security",
     "npm": "^8.19.3",
