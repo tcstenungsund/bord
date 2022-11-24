@@ -70,7 +70,13 @@
 								document.querySelector("#scanButton").onclick = event => {
 									// Prompt user to allow to send and receive info when they tap NFC devices.
 									document.querySelector("#scanButton").style.display = "none";
-									
+
+									work.onmessage = (evt) => { number = evt.data; };
+
+									if(evt.data === 1){
+										startScanning();
+									}
+
 								};
 							}
 						});
@@ -104,6 +110,8 @@
 			};
 			
 		}
+
+
 		
 
 	</script>
