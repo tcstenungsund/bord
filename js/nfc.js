@@ -33,5 +33,4 @@ export function startScanning(){
         color.style.backgroundColor = "#ff0000";
 
     });
-
 }

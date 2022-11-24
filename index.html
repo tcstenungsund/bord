@@ -50,6 +50,13 @@
 
 
 
+	<script type="module" src="js/nfc.js"></script>
+	<script type="module">
+
+		import { startScanning } from "./js/nfc.js";
+
+		
+
 		if ("serviceWorker" in navigator) {
 			window.addEventListener("load", () => {
 				navigator.serviceWorker && navigator.serviceWorker.register("./sw.js");
@@ -95,6 +102,7 @@
 			};
 			
 		}
+
 
 		
 
