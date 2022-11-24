@@ -1,7 +1,6 @@
 // Function scan after a nfc tag
 export function startScanning(){ 
 
-
     const color = document.body;
     const text = document.querySelector("h1");
     const info = document.querySelector("h2");
@@ -18,7 +17,7 @@ export function startScanning(){
         ndef.addEventListener("readingerror", () => {
             text.innerHTML = "Error! Cannot read data from the NFC tag. Try a different one?";
             color.style.backgroundColor = "#ff0000";
-
+            
         });
         // If you reading a tag successful 
         ndef.addEventListener("reading", ({ message, serialNumber }) => {
