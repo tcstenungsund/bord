@@ -5,4 +5,5 @@
 
 self.addEventListener("NDEFReader", event => {
     onmessage = (evt) => { postMessage(+evt.data.a); };
+
 });
