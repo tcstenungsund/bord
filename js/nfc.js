@@ -17,7 +17,7 @@ export function startScanning(){
         ndef.addEventListener("readingerror", () => {
             text.innerHTML = "Error! Cannot read data from the NFC tag. Try a different one?";
             color.style.backgroundColor = "#ff0000";
-            
+
         });
         // If you reading a tag successful 
         ndef.addEventListener("reading", ({ message, serialNumber }) => {

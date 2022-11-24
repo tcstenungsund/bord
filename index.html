@@ -70,13 +70,7 @@
 								document.querySelector("#scanButton").onclick = event => {
 									// Prompt user to allow to send and receive info when they tap NFC devices.
 									document.querySelector("#scanButton").style.display = "none";
-
-									work.onmessage = (evt) => { number = evt.data; };
-
-									if(evt.data === 1){
-										startScanning();
-									}
-
+									
 								};
 							}
 						});
@@ -88,26 +82,53 @@
 			var work = new Worker("./worker.js");
 			work.postMessage({ a:1});
 			document.body.style.backgroundColor = "blue";
-			work.onmessage = (evt) => { 
-				document.body.style.backgroundColor = "red";
-				if(evt.data){
-					document.body.style.backgroundColor = "yellow";
-					navigator.permissions.query({name:'nfc'}).then((result) => {
-						document.body.style.backgroundColor = "black";
-					if (result.state === 'granted') {
-						document.body.style.backgroundColor = "white";
-								if(evt.data === 1){
-									document.body.style.backgroundColor = "green";
-									startScanning();
-								}
+			try{
+				work.onmessage = (evt) => { 
+					document.body.style.backgroundColor = "red";
+					if(evt.data){
+						document.body.style.backgroundColor = "yellow";
+						navigator.permissions.query({name:'nfc'}).then((result) => {
+							document.body.style.backgroundColor = "black";
+						if (result.state === 'granted') {
+							document.body.style.backgroundColor = "white";
+									if(evt.data === 1){
+										document.body.style.backgroundColor = "green";
+										startScanning();
+									}
 
-					} 
-					});
+						} 
+						});
+						
+						
+					}
 					
+				};
+			}
+			catch{
+				work.postMessage({ a:1});
+				work.onmessage = (evt) => { 
+					document.body.style.backgroundColor = "red";
+					if(evt.data){
+						document.body.style.backgroundColor = "yellow";
+						navigator.permissions.query({name:'nfc'}).then((result) => {
+							document.body.style.backgroundColor = "black";
+						if (result.state === 'granted') {
+							document.body.style.backgroundColor = "white";
+									if(evt.data === 1){
+										document.body.style.backgroundColor = "green";
+										startScanning();
+									}
+
+						} 
+						});
+						
+						
+					}
 					
-				}
-					
-			};
+				};
+			}
+			
+
 			
 		}
 
