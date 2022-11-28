@@ -32,33 +32,34 @@ function startScanning(){
     
 }
 
-if(window.Worker){
+if ('NDEFReader' in window) {
+
     const text = document.querySelector("h1");
     text.innerHTML = navigator.permissions.query({name:'nfc'});
+    // Look if have permissions for a nfc is granted or not if permissions is not granded make a button that give browser permissions for nfc
+    navigator.permissions.query({name:'nfc'}).then((result) => {
+        if (result.state === 'granted') {
+          color.style.backgroundColor = "#fff";
+          text.innerHTML = navigator.permissions.query({name:'nfc'});
+        } else if (result.state === 'prompt') {
+            // Show a scan button.
+            document.querySelector("#scanButton").style.display = "block";
+            document.querySelector("#scanButton").onclick = event => {
+            // Prompt user to allow to send and receive info when they tap NFC devices.
+            document.querySelector("#scanButton").style.display = "none";
+            text.innerHTML = navigator.permissions.query({name:'nfc'});
+            };
+        }
+      });
+    
+}
+else{
+    // If device have no nfc reader or browser does not support NDEFReader
+    text.innerHTML = "No nfc reader or browser does not support NDEFReader";
+    color.style.backgroundColor = "#0000ff";
+}
 
-    if ('NDEFReader' in window) {
-        // Look if have permissions for a nfc is granted or not if permissions is not granded make a button that give browser permissions for nfc
-        navigator.permissions.query({name:'nfc'}).then((result) => {
-            if (result.state === 'granted') {
-              color.style.backgroundColor = "#fff";
-              text.innerHTML = navigator.permissions.query({name:'nfc'});
-            } else if (result.state === 'prompt') {
-                // Show a scan button.
-                document.querySelector("#scanButton").style.display = "block";
-                document.querySelector("#scanButton").onclick = event => {
-                // Prompt user to allow to send and receive info when they tap NFC devices.
-                document.querySelector("#scanButton").style.display = "none";
-                text.innerHTML = navigator.permissions.query({name:'nfc'});
-                };
-            }
-          });
-        
-    }
-    else{
-        // If device have no nfc reader or browser does not support NDEFReader
-        text.innerHTML = "No nfc reader or browser does not support NDEFReader";
-        color.style.backgroundColor = "#0000ff";
-    }
+if(window.Worker){
 
     document.body.style.backgroundColor = "blue";
     var worker = new Worker("./worker.js");
