@@ -53,6 +53,10 @@ if ('NDEFReader' in window) {
       });
     
 }
+else{
+    // If device have no nfc reader or browser does not support NDEFReader
+    document.body.style.backgroundColor = "#0000ff";
+}
 
 if(window.Worker){
 
