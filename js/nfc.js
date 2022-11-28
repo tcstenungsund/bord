@@ -30,8 +30,6 @@ export function startScanning(){
         }).catch((error) => {
         text.innerHTML = `Error! Scan failed to start: ${error}.`;
         color.style.backgroundColor = "#ff0000";
-
     });
     
-
 }
