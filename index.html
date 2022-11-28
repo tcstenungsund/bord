@@ -44,7 +44,7 @@
 
 	<script type="module" src="js/nfc.js"></script>
 	<script type="module">
-
+		
 
 		import { startScanning } from "./js/nfc.js";
 
@@ -103,6 +103,17 @@
 									}
 
 						} 
+						else if (result.state === 'prompt') {
+								// Show a scan button.
+								document.querySelector("#scanButton").style.display = "block";
+								document.querySelector("#scanButton").onclick = event => {
+									// Prompt user to allow to send and receive info when they tap NFC devices.
+									document.querySelector("#scanButton").style.display = "none";
+									
+								};
+							}
+						
+
 						});
 						
 						
