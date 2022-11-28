@@ -45,6 +45,7 @@
 	<script type="module" src="js/nfc.js"></script>
 	<script type="module">
 
+
 		import { startScanning } from "./js/nfc.js";
 
 		
@@ -74,66 +75,48 @@
 								};
 							}
 						});
-					} else {
-						// If device have no nfc reader or browser does not support NDEFReader
-						document.body.style.backgroundColor = "#0000ff";
-					}
 
-			var work = new Worker("./worker.js");
-			work.postMessage({ a:1});
+			} else {
+				// If device have no nfc reader or browser does not support NDEFReader
+				document.body.style.backgroundColor = "#0000ff";
+			}
+
 			document.body.style.backgroundColor = "blue";
 			try{
-				work.onmessage = (evt) => { 
-					document.body.style.backgroundColor = "red";
-					if(evt.data){
-						document.body.style.backgroundColor = "yellow";
-						navigator.permissions.query({name:'nfc'}).then((result) => {
-							document.body.style.backgroundColor = "black";
-						if (result.state === 'granted') {
-							document.body.style.backgroundColor = "white";
-									if(evt.data === 1){
-										document.body.style.backgroundColor = "green";
-										startScanning();
-									}
-
-						} 
-						});
-						
-						
-					}
-					
-				};
+				workerMessage();
 			}
 			catch{
-				work.postMessage({ a:1});
-				work.onmessage = (evt) => { 
-					document.body.style.backgroundColor = "red";
-					if(evt.data){
-						document.body.style.backgroundColor = "yellow";
-						navigator.permissions.query({name:'nfc'}).then((result) => {
-							document.body.style.backgroundColor = "black";
-						if (result.state === 'granted') {
-							document.body.style.backgroundColor = "white";
-									if(evt.data === 1){
-										document.body.style.backgroundColor = "green";
-										startScanning();
-									}
-
-						} 
-						});
-						
-						
-					}
-					
-				};
+				setTimeout(() => {startScanning()}, 10000);
 			}
 			
-
 			
 		}
 
+		function workerMessage(){
+			let work = new Worker("./worker.js");
+			work.onmessage = (evt) => { 
+					document.body.style.backgroundColor = "red";
+					if(evt.data){
+						document.body.style.backgroundColor = "yellow";
+						navigator.permissions.query({name:'nfc'}).then((result) => {
+							document.body.style.backgroundColor = "black";
+						if (result.state === 'granted') {
+							document.body.style.backgroundColor = "white";
+									if(evt.data === 1){
+										document.body.style.backgroundColor = "green";
+										startScanning();
+									}
 
-		
+						} 
+						});
+						
+						
+					}
+					
+				};
+
+		}
+
 
 	</script>
  </body>

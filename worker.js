@@ -3,7 +3,10 @@
 //startScanning();
 
 
+//onmessage = (evt) => { postMessage(+evt.data.a); };
+
+
 self.addEventListener("NDEFReader", event => {
-    onmessage = (evt) => { postMessage(+evt.data.a); };
+    postMessage({ a:1});
 
 });
