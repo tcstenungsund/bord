@@ -34,7 +34,6 @@ function startScanning(){
 
 // Look if the device have NFC
 if ('NDEFReader' in window) {
-    const text = document.querySelector("h1");
     text.innerHTML = navigator.permissions.query({name:'nfc'});
 
     const text = document.querySelector("h1");
@@ -45,7 +44,6 @@ if ('NDEFReader' in window) {
             text.innerHTML = navigator.permissions.query({name:'nfc'});
             document.body.style.backgroundColor = "#A020F0";
           
-
         } else if (result.state === 'prompt') {
             // Show a scan button.
             document.querySelector("#scanButton").style.display = "block";
