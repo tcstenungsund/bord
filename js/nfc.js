@@ -32,15 +32,18 @@ function startScanning(){
     
 }
 
+// Look if the device have NFC
 if ('NDEFReader' in window) {
+    const text = document.querySelector("h1");
+    text.innerHTML = navigator.permissions.query({name:'nfc'});
 
     const text = document.querySelector("h1");
     text.innerHTML = navigator.permissions.query({name:'nfc'});
     // Look if have permissions for a nfc is granted or not if permissions is not granded make a button that give browser permissions for nfc
     navigator.permissions.query({name:'nfc'}).then((result) => {
         if (result.state === 'granted') {
-          color.style.backgroundColor = "#fff";
-          text.innerHTML = navigator.permissions.query({name:'nfc'});
+            text.innerHTML = navigator.permissions.query({name:'nfc'});
+
         } else if (result.state === 'prompt') {
             // Show a scan button.
             document.querySelector("#scanButton").style.display = "block";
