@@ -55,8 +55,7 @@ if ('NDEFReader' in window) {
 }
 else{
     // If device have no nfc reader or browser does not support NDEFReader
-    text.innerHTML = "No nfc reader or browser does not support NDEFReader";
-    color.style.backgroundColor = "#0000ff";
+    document.body.style.backgroundColor = "#0000ff";
 }
 
 if(window.Worker){
