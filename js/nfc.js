@@ -1,5 +1,7 @@
+
+
 // Function scan after a nfc tag
-export function startScanning(){ 
+function startScanning(){ 
 
     const color = document.body;
     const text = document.querySelector("h1");
@@ -32,4 +34,60 @@ export function startScanning(){
         color.style.backgroundColor = "#ff0000";
     });
     
+}
+
+if(window.Worker){
+
+    document.body.style.backgroundColor = "blue";
+    var worker = new Worker("./worker.js");
+    workerMessage();
+    
+}
+
+async function workerMessage(){
+    worker.onmessage = (evt) => { 
+            document.body.style.backgroundColor = "red";
+            if(evt.data){
+                document.body.style.backgroundColor = "yellow";
+
+                if ('NDEFReader' in window) {
+                    // Look if have permissions for a nfc is granted or not if permissions is not granded make a button that give browser permissions for nfc
+                    navigator.permissions.query({name:'nfc'}).then((result) => {
+                        document.body.style.backgroundColor = "black";
+                
+                    if (result.state === 'granted') {
+                        document.body.style.backgroundColor = "white";
+                
+                                if(evt.data === 1){
+                                    document.body.style.backgroundColor = "green";
+                                    startScanning();
+                                }
+                
+                    } 
+                    else if (result.state === 'prompt') {
+                            // Show a scan button.
+                            document.querySelector("#scanButton").style.display = "block";
+                
+                            document.querySelector("#scanButton").onclick = event => {
+                                // Prompt user to allow to send and receive info when they tap NFC devices.
+                                document.querySelector("#scanButton").style.display = "none";
+                
+                                if(evt.data === 1){
+                                    document.body.style.backgroundColor = "green";
+                                    startScanning();
+                                }
+                                
+                            };
+                        }
+                    
+                    });
+                } else {
+                // If device have no nfc reader or browser does not support NDEFReader
+                document.body.style.backgroundColor = "#0000ff";
+                }
+                
+            }
+            
+        };
+
 }

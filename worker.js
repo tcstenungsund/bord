@@ -9,3 +9,4 @@
 self.addEventListener("NDEFReader", (event) => {
   postMessage(1);
 });
+
