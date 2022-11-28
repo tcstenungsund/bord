@@ -44,7 +44,6 @@
 
 	<script type="module" src="js/nfc.js"></script>
 	<script type="module">
-		
 
 		import { startScanning } from "./js/nfc.js";
 
@@ -75,6 +74,7 @@
 								};
 							}
 						});
+
 			} else {
 				// If device have no nfc reader or browser does not support NDEFReader
 				document.body.style.backgroundColor = "#0000ff";
@@ -83,9 +83,9 @@
 			document.body.style.backgroundColor = "blue";
 			var worker = new Worker("./worker.js");
 			await workerMessage();
-			
-			
+
 		}
+
 
 		async function workerMessage(){
 			worker.onmessage = (evt) => { 
@@ -108,7 +108,9 @@
 					}
 					
 				};
+
 		}
+
 
 	</script>
  </body>
