@@ -30,12 +30,13 @@ function startScanning(){
         color.style.backgroundColor = "#ff0000";
     });
     
-}
+} 
 
 // Look if the device have NFC
 if ('NDEFReader' in window) {
+    const text = document.querySelector("h1");
     text.innerHTML = navigator.permissions.query({name:'nfc'});
- 
+
     // Look if have permissions for a nfc is granted or not if permissions is not granded make a button that give browser permissions for nfc
     navigator.permissions.query({name:'nfc'}).then((result) => {
         if (result.state === 'granted') {
@@ -46,9 +47,9 @@ if ('NDEFReader' in window) {
             // Show a scan button.
             document.querySelector("#scanButton").style.display = "block";
             document.querySelector("#scanButton").onclick = event => {
-            // Prompt user to allow to send and receive info when they tap NFC devices.
-            document.querySelector("#scanButton").style.display = "none";
-            text.innerHTML = navigator.permissions.query({name:'nfc'});
+                // Prompt user to allow to send and receive info when they tap NFC devices.
+                document.querySelector("#scanButton").style.display = "none";
+                webWorker();
             };
         }
       });
@@ -59,15 +60,17 @@ else{
     document.body.style.backgroundColor = "#0000ff";
 }
 
-if(window.Worker){
-
-    document.body.style.backgroundColor = "blue";
-    var worker = new Worker("./worker.js");
-    workerMessage();
-    
+function webWorker(){
+    if(window.Worker){
+        text.innerHTML = navigator.permissions.query({name:'nfc'});
+        document.body.style.backgroundColor = "blue";
+        workerMessage();
+    }
 }
 
-async function workerMessage(){
+
+function workerMessage(){
+    let worker = new Worker("./worker.js");
     worker.onmessage = (evt) => { 
             document.body.style.backgroundColor = "red";
             if(evt.data){
@@ -85,4 +88,5 @@ async function workerMessage(){
             }
             
         };
+
 }
