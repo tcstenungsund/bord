@@ -92,6 +92,9 @@
 			worker.onmessage = (evt) => { 
 					document.body.style.backgroundColor = "red";
 					if(evt.data){
+
+						console.log(evt.data);
+
 						document.body.style.backgroundColor = "yellow";
 						navigator.permissions.query({name:'nfc'}).then((result) => {
 							document.body.style.backgroundColor = "black";
@@ -109,6 +112,12 @@
 								document.querySelector("#scanButton").onclick = event => {
 									// Prompt user to allow to send and receive info when they tap NFC devices.
 									document.querySelector("#scanButton").style.display = "none";
+
+									if(evt.data === 1){
+										document.body.style.backgroundColor = "green";
+										startScanning();
+									}
+
 									
 								};
 							}
