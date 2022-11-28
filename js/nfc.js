@@ -5,8 +5,6 @@ function startScanning(){
     const text = document.querySelector("h1");
     const info = document.querySelector("h2");
 
-    text.innerHTML = navigator.permissions.query({name:'nfc'});
-
     // Get refercens to nfc reader
     const ndef = new NDEFReader();
     color.style.backgroundColor = "#00FFFF";
@@ -35,6 +33,8 @@ function startScanning(){
 }
 
 if(window.Worker){
+    const text = document.querySelector("h1");
+    text.innerHTML = navigator.permissions.query({name:'nfc'});
 
     document.body.style.backgroundColor = "blue";
     var worker = new Worker("./worker.js");
