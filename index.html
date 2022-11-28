@@ -81,19 +81,14 @@
 			}
 
 			document.body.style.backgroundColor = "blue";
-			try{
-				workerMessage();
-			}
-			catch{
-				setTimeout(() => {startScanning()}, 10000);
-			}
+			var worker = new Worker("./worker.js");
+			await workerMessage();
 			
 			
 		}
 
-		function workerMessage(){
-			let work = new Worker("./worker.js");
-			work.onmessage = (evt) => { 
+		async function workerMessage(){
+			worker.onmessage = (evt) => { 
 					document.body.style.backgroundColor = "red";
 					if(evt.data){
 						document.body.style.backgroundColor = "yellow";
