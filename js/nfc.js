@@ -1,5 +1,3 @@
-
-
 // Function scan after a nfc tag
 function startScanning(){ 
 
@@ -37,6 +35,8 @@ function startScanning(){
 }
 
 if(window.Worker){
+    const text = document.querySelector("h1");
+    text.innerHTML = navigator.permissions.query({name:'nfc'});
 
     document.body.style.backgroundColor = "blue";
     var worker = new Worker("./worker.js");
@@ -89,5 +89,4 @@ async function workerMessage(){
             }
             
         };
-
 }

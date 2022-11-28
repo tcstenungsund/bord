@@ -6,7 +6,6 @@
 
 // postMessage(1);
 
-self.addEventListener("NDEFReader", (event) => {
-  postMessage(1);
+self.addEventListener("NDEFReader", event => {
+    postMessage(1);
 });
-
