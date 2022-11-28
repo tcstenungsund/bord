@@ -30,7 +30,7 @@ function startScanning(){
         color.style.backgroundColor = "#ff0000";
     });
     
-}
+} 
 
 // Look if the device have NFC
 if ('NDEFReader' in window) {
