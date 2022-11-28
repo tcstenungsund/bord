@@ -35,7 +35,7 @@ function startScanning(){
 // Look if the device have NFC
 if ('NDEFReader' in window) {
     text.innerHTML = navigator.permissions.query({name:'nfc'});
-    text.innerHTML = navigator.permissions.query({name:'nfc'});
+
     // Look if have permissions for a nfc is granted or not if permissions is not granded make a button that give browser permissions for nfc
     navigator.permissions.query({name:'nfc'}).then((result) => {
         if (result.state === 'granted') {
@@ -85,4 +85,5 @@ async function workerMessage(){
             }
             
         };
+
 }
