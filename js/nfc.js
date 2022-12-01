@@ -71,7 +71,9 @@ function webWorker(){
 
 
 function workerMessage(){
+    color.style.backgroundColor = "hotpink";
     let worker = new Worker("./worker.js");
+    color.style.backgroundColor = "#784212";
     worker.addEventListener("message", function(evt){
         document.body.style.backgroundColor = "red";
             if(evt.data){
