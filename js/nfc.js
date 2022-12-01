@@ -7,7 +7,6 @@ function startScanning(){
 
     // Get refercens to nfc reader
     const ndef = new NDEFReader();
-    color.style.backgroundColor = "#00FFFF";
 
     // Start scaning for NFC tags
     ndef.scan().then(() => {
@@ -40,7 +39,6 @@ if ('NDEFReader' in window) {
     navigator.permissions.query({name:'nfc'}).then((result) => {
         if (result.state === 'granted') {
             text.innerHTML = navigator.permissions.query({name:'nfc'});
-            document.body.style.backgroundColor = "#A020F0";
             webWorker();
           
         } else if (result.state === 'prompt') {
@@ -63,24 +61,19 @@ else{
 function webWorker(){
     if(window.Worker){
         text.innerHTML = navigator.permissions.query({name:'nfc'});
-        document.body.style.backgroundColor = "blue";
         workerMessage();
     }
 }
 
 
 function workerMessage(){
-    color.style.backgroundColor = "hotpink";
     let worker = new Worker("./worker.js");
-    color.style.backgroundColor = "#784212";
+    text.innerHTML = "Find web worker";
     worker.addEventListener("message", function(evt){
-        document.body.style.backgroundColor = "red";
             if(evt.data){
-                document.body.style.backgroundColor = "yellow";
                 text.innerHTML = evt.data;
 
                 if(evt.data === 1){
-                    document.body.style.backgroundColor = "green";
                     startScanning();
                 }
 
