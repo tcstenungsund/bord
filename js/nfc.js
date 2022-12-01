@@ -1,9 +1,9 @@
+const color = document.body;
+const text = document.querySelector("h1");
+const info = document.querySelector("h2");
+
 // Function scan after a nfc tag
 function startScanning(){ 
-
-    const color = document.body;
-    const text = document.querySelector("h1");
-    const info = document.querySelector("h2");
 
     // Get refercens to nfc reader
     const ndef = new NDEFReader();
@@ -34,7 +34,6 @@ function startScanning(){
 
 // Look if the device have NFC
 if ('NDEFReader' in window) {
-    const text = document.querySelector("h1");
     text.innerHTML = navigator.permissions.query({name:'nfc'});
 
     // Look if have permissions for a nfc is granted or not if permissions is not granded make a button that give browser permissions for nfc
@@ -71,8 +70,8 @@ function webWorker(){
 
 function workerMessage(){
     let worker = new Worker("./worker.js");
-    worker.onmessage = (evt) => { 
-            document.body.style.backgroundColor = "red";
+    worker.addEventListener("message", function(evt){
+        document.body.style.backgroundColor = "red";
             if(evt.data){
                 document.body.style.backgroundColor = "yellow";
 
@@ -86,7 +85,6 @@ function workerMessage(){
 
                 
             }
-            
-        };
 
+    })
 }
