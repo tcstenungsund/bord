@@ -78,6 +78,7 @@ function workerMessage(){
         document.body.style.backgroundColor = "red";
             if(evt.data){
                 document.body.style.backgroundColor = "yellow";
+                text.innerHTML = evt.data;
 
                 if(evt.data === 1){
                     document.body.style.backgroundColor = "green";
