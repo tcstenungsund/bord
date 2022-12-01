@@ -15,7 +15,6 @@ function startScanning(){
         // If you get a error while reading a tag
         ndef.addEventListener("readingerror", () => {
             text.innerHTML = "Error! Cannot read data from the NFC tag. Try a different one?";
-            color.style.backgroundColor = "#ff0000";
         });
         // If you reading a tag successful 
         ndef.addEventListener("reading", ({ message, serialNumber }) => {
@@ -26,7 +25,6 @@ function startScanning(){
         // If it get a error while starting the scan
         }).catch((error) => {
         text.innerHTML = `Error! Scan failed to start: ${error}.`;
-        color.style.backgroundColor = "#ff0000";
     });
     
 } 
