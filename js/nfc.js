@@ -79,15 +79,11 @@ function workerMessage(){
             if(evt.data){
                 document.body.style.backgroundColor = "yellow";
 
-                if (result.state === 'granted') {
+                if(evt.data === 1){
+                    document.body.style.backgroundColor = "green";
+                    startScanning();
+                }
 
-                    if(evt.data === 1){
-                        document.body.style.backgroundColor = "green";
-                        startScanning();
-                    }
-                } 
-
-                
             }
 
     })
