@@ -1,9 +1,9 @@
+const color = document.body;
+const text = document.querySelector("h1");
+const info = document.querySelector("h2");
+
 // Function scan after a nfc tag
 function startScanning(){ 
-
-    const color = document.body;
-    const text = document.querySelector("h1");
-    const info = document.querySelector("h2");
 
     // Get refercens to nfc reader
     const ndef = new NDEFReader();
@@ -71,8 +71,8 @@ function webWorker(){
 
 function workerMessage(){
     let worker = new Worker("./worker.js");
-    worker.onmessage = (evt) => { 
-            document.body.style.backgroundColor = "red";
+    worker.addEventListener("message", function(evt){
+        document.body.style.backgroundColor = "red";
             if(evt.data){
                 document.body.style.backgroundColor = "yellow";
 
@@ -86,7 +86,6 @@ function workerMessage(){
 
                 
             }
-            
-        };
 
+    })
 }
