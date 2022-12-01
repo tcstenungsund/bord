@@ -42,6 +42,7 @@ if ('NDEFReader' in window) {
         if (result.state === 'granted') {
             text.innerHTML = navigator.permissions.query({name:'nfc'});
             document.body.style.backgroundColor = "#A020F0";
+            webWorker();
           
         } else if (result.state === 'prompt') {
             // Show a scan button.
