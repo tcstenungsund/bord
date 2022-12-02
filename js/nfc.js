@@ -1,4 +1,3 @@
-const color = document.body;
 const text = document.querySelector("h1");
 const info = document.querySelector("h2");
 
@@ -54,7 +53,7 @@ if ('NDEFReader' in window) {
 }
 else{
     // If device have no nfc reader or browser does not support NDEFReader
-    document.body.style.backgroundColor = "#0000ff";
+    text.innerHTML = "No nfc reader or browser does not support NDEFReader";
 }
 
 function webWorker(){

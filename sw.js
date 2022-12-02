@@ -1,19 +1,21 @@
 const cacheName = "cache2"; // Change value to force update
 const urls = [
 	"./",
-	"android-chrome-192x192.png", // Favicon, Android Chrome M39+ with 4.0 screen density
-	"android-chrome-512x512.png", // Favicon, Android Chrome M47+ Splash screen with 4.0 screen density
-	"apple-touch-icon.png", // Favicon, Apple default
+	"image/icons/android-chrome-192x192.png", // Favicon, Android Chrome M39+ with 4.0 screen density
+	"image/icons/android-chrome-512x512.png", // Favicon, Android Chrome M47+ Splash screen with 4.0 screen density
+	"image/icons/apple-touch-icon.png", // Favicon, Apple default
 	"browserconfig.xml", // IE11 icon configuration file
-	"favicon.ico", // Favicon, IE and fallback for other browsers
-	"favicon-16x16.png", // Favicon, default
-	"favicon-32x32.png", // Favicon, Safari on Mac OS
+	"image/icons/favicon.ico", // Favicon, IE and fallback for other browsers
+	"image/icons/favicon-16x16.png", // Favicon, default
+	"image/icons/favicon-32x32.png", // Favicon, Safari on Mac OS
 	"index.html", // Main HTML file
-	"main.js", // Main Javascript file
+	"js/main.js", // Main Javascript file
 	"manifest.json", // Manifest file
-	"mstile-150x150.png", // Favicon, Windows 8 / IE11
-	"safari-pinned-tab.svg", // Favicon, Safari pinned tab
-	"css/index.css"
+	"image/icons/mstile-150x150.png", // Favicon, Windows 8 / IE11
+	"image/icons/safari-pinned-tab.svg", // Favicon, Safari pinned tab
+	"css/index.css",
+	"js/nfc.js",
+	"worker.js"
 ]
 
 self.addEventListener("install", event => {
