@@ -5,7 +5,7 @@ const contentEl = document.getElementById("api-content");
 
 fruitBtn.addEventListener("click", function () {
   console.log("Fruit-knapp klickad");
-  fetch(exUrl, {
+  fetch(fruitUrl, {
     credentials: "include",
     headers: {
       "Content-Type": "text/html; charset=utf-8",
