@@ -1,10 +1,11 @@
 const fruitBtn = document.getElementById("fruit-btn");
-const fruitURL = "https://creepy-headscarf-hen.cyclic.app/fruit";
+const fruitUrl = "https://creepy-headscarf-hen.cyclic.app/fruit";
+const exUrl = "https://jsonplaceholder.typicode.com/todos/1";
 const contentEl = document.getElementById("api-content");
 
 fruitBtn.addEventListener("click", function () {
   console.log("Fruit-knapp klickad");
-  fetch(fruitURL, {
+  fetch(exUrl, {
     credentials: "include",
     headers: {
       "Content-Type": "text/html; charset=utf-8",
@@ -15,6 +16,7 @@ fruitBtn.addEventListener("click", function () {
     })
     .then((res) => {
       console.log(res);
+      console.log(typeof res);
       contentEl.innerHTML = res;
     });
 });
