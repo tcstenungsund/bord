@@ -8,11 +8,11 @@ fruitBtn.addEventListener("click", function () {
   fetch(fruitUrl, {
     credentials: "include",
     headers: {
-      "Content-Type": "text/html; charset=utf-8",
+      "Content-Type": "text/html",
     },
   })
     .then((data) => {
-      return data.blob();
+      return data.text();
     })
     .then((res) => {
       console.log(res);
