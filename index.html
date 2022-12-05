@@ -44,28 +44,49 @@
   </head>
 
   <body>
-    <h1>hej</h1>
+    
+    <main class="container">
+      <header class="content headers">
 
-    <button id="scanButton">Scan</button>
+        <h1 class="title">Learn OL</h1>
+  
+      </header>
 
-    <h2></h2>
+      <section class="content info">
 
-    <h3></h3>
+          <h1 class="nfc-info title">hej</h1>
 
-    <!-- För att hämta Fruit-data -->
-    <button id="fruit-btn">Fruit</button>
+          <button id="scanButton">Scan</button>
+
+          <h2 class="nfc-output subheading">SHDhhhhjjkIUHFIUHDUIHFUDH</h2>
+
+          <h3></h3>
+
+          <!-- För att hämta Fruit-data -->
+          <button id="fruit-btn">Fruit</button>
+
+      </section>
+      
+    </main>
+
+    <footer class="container">
+      <h1 class="title">Footer</h1>
+    </footer>
+
 
     <!-- Här sker hämtningen av Fruit-data när knappen klickas -->
     <script src="request.js"></script>
 
     <script src="js/nfc.js"></script>
+
     <script>
+      /*
       if ("serviceWorker" in navigator) {
         window.addEventListener("load", () => {
           navigator.serviceWorker &&
             navigator.serviceWorker.register("./sw.js");
         });
-      }
+      }*/
     </script>
   </body>
 </html>

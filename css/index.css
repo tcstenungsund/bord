@@ -1,12 +1,58 @@
 @import url("https://cdn.jsdelivr.net/gh/jgthms/minireset.css@master/minireset.min.css");
+body {
+  font-family: "Times New Roman";
+}
+
+.title {
+  font-family: "Elephant";
+}
+
+.subheading {
+  font-family: "Century";
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+}
+
+.content {
+  height: 95vh;
+  width: max-width;
+  background: #368c9c;
+}
+
+.info {
+  grid-column: 2/span 2;
+  grid-row: seconed-line/1;
+  display: grid;
+  place-items: center;
+}
+
+.headers {
+  display: grid;
+  place-items: center;
+  grid-column: 1/span 1;
+  grid-row: first-line/1;
+}
+
 h1 {
-  color: hotpink;
+  color: rgb(0, 0, 0);
 }
 
 #scanButton {
   display: none;
   width: 4rem;
   height: 2rem;
+}
+
+footer {
+  background: #343434;
+  height: 5vh;
+}
+footer h1 {
+  color: white;
 }
 
 /*# sourceMappingURL=index.css.map */

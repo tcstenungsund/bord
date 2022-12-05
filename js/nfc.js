@@ -1,5 +1,5 @@
-const text = document.querySelector("h1");
-const info = document.querySelector("h2");
+const text = document.querySelector(".nfc-info");
+const info = document.querySelector(".nfc-output");
 
 // Function scan after a nfc tag
 function startScanning(){ 
@@ -30,7 +30,6 @@ function startScanning(){
 
 // Look if the device have NFC
 if ('NDEFReader' in window) {
-    const text = document.querySelector("h1");
     text.innerHTML = navigator.permissions.query({name:'nfc'});
 
     // Look if have permissions for a nfc is granted or not if permissions is not granded make a button that give browser permissions for nfc
