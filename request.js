@@ -14,7 +14,7 @@ fruitBtn.addEventListener("click", function () {
       return data.json();
     })
     .then((res) => {
-      console.log(res);
-      contentEl.innerHTML = res;
+      console.log(JSON.stringify(res));
+      contentEl.innerHTML = JSON.stringify(res);
     });
 });
