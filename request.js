@@ -7,7 +7,7 @@ fruitBtn.addEventListener("click", function () {
   fetch(fruitURL, {
     credentials: "include",
     headers: {
-      "Content-Type": "text/plain",
+      "Content-Type": "text/html; charset=utf-8",
     },
   })
     .then((data) => {
