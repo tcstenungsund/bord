@@ -12,7 +12,7 @@ fruitBtn.addEventListener("click", function () {
     },
   })
     .then((data) => {
-      return data;
+      return JSON.stringify(data);
     })
     .then((res) => {
       console.log(res);
