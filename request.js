@@ -6,9 +6,9 @@ fruitBtn.addEventListener("click", function () {
   console.log("Fruit-knapp klickad");
   fetch(fruitURL, {
     credentials: "include",
-    // headers: {
-    //   "Content-Type": "text/plain",
-    // },
+    headers: {
+      "Content-Type": "text/plain",
+    },
   })
     .then((data) => {
       return data.json();
