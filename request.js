@@ -1,6 +1,5 @@
 const fruitBtn = document.getElementById("fruit-btn");
 const fruitUrl = "https://creepy-headscarf-hen.cyclic.app/fruit";
-const exUrl = "https://jsonplaceholder.typicode.com/todos/1";
 const contentEl = document.getElementById("api-content");
 
 fruitBtn.addEventListener("click", function () {
