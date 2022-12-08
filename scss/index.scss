@@ -1,36 +1,67 @@
 @import url("https://cdn.jsdelivr.net/gh/jgthms/minireset.css@master/minireset.min.css");
 body{
     font-family: "Times New Roman";
+    background: #e0f1f5;
 }
-.title{
+
+h1{
     font-family: "Elephant";
 }
 
-.subheading{
+h2, h3, h4, h5, h6{
     font-family: "Century";
 }
 
 .container{
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-areas: 
+    "header header"
+    "main main";
+    grid-gap: 1rem;
 }
 
 .content{
-    //outline: rgb(255, 0, 0) solid;
-    height: 95vh;
-    width: max-width;
-    //background: rgb(0, 174, 99);
+    outline: rgb(255, 0, 0) solid;
+    margin: 1rem;
+    padding: 1rem;
+    //height: 95vh;
+    //width: 50vw;
     background: #368c9c;
+    
 }
 
 .info{
-    
-    grid-column: 2 / span 2;
-    grid-row: seconed-line / 1;
-    display: grid;
-    place-items: center;
-    //grid-area: 1 / col2-start / last-line / 2;
+    grid-area: header;
+}
+
+.info2{
+    grid-area: main;
+    grid-column: 2;
+}
+
+.info3{
+    grid-area: main;
+    grid-column: 1;
+}
+
+#fruit-btn{
+    margin: 1rem;
+    padding: 1rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    max-width: fit-content;
+    height: fit-content;
+    place-items: end;
+
+    background: #f5f5f5;
+    border-color: #f5f5f5;
+    border-style: unset;
+    border-radius: 30px;
+
+    &:hover{
+        background: #cbcbcb;
+        border-color: #cbcbcb;
+    }
 }
 
 .headers{
@@ -38,11 +69,10 @@ body{
     place-items: center;
     grid-column: 1 / span 1;
     grid-row: first-line / 1;
-    
 }
 
 h1{
-    color:rgb(0, 0, 0)
+    color:rgb(0, 0, 0);
 }
 
 #scanButton{
@@ -52,7 +82,7 @@ h1{
 } 
 
 footer{
-    //background: rgb(50, 50, 50);
+    display: grid;
     background: #343434;
     height: 5vh;
 
