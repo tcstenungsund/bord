@@ -1,6 +1,6 @@
 const fruitBtn = document.getElementById("fruit-btn");
 const fruitUrl = "https://creepy-headscarf-hen.cyclic.app/fruit";
-const localhost = "http://localhost:9090/fruit";
+const localhost = "http://localhost:8080/fruit";
 const contentEl = document.getElementById("api-content");
 
 fruitBtn.addEventListener("click", function () {
