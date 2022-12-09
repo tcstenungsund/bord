@@ -4,6 +4,7 @@
     "concatenate": "^0.0.2",
     "jsdom": "^20.0.3",
     "live-server": "^1.2.2",
+    "minireset.css": "^0.0.7",
     "node.js": "^0.0.1-security",
     "npm": "^8.19.3",
     "sass": "^1.56.0",
