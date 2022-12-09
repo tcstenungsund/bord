@@ -54,8 +54,13 @@
 
     <h3></h3>
 
+    <!-- För att gå till inställningar för användaren -->
+    <button onclick="window.location.href = '/settings.html'" id="settings-btn">
+      Gå till settings
+    </button>
+
     <!-- För att hämta Fruit-data -->
-    <button id="fruit-btn">Fruit</button>
+    <button id="fruit-btn">Se Fruit</button>
 
     <p id="api-content">Empty</p>
 
@@ -64,12 +69,12 @@
 
     <script src="js/nfc.js"></script>
     <script>
-      if ("serviceWorker" in navigator) {
-        window.addEventListener("load", () => {
-          navigator.serviceWorker &&
-            navigator.serviceWorker.register("./sw.js");
-        });
-      }
+      // if ("serviceWorker" in navigator) {
+      //   window.addEventListener("load", () => {
+      //     navigator.serviceWorker &&
+      //       navigator.serviceWorker.register("./sw.js");
+      //   });
+      // }
     </script>
   </body>
 </html>

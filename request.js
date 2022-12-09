@@ -1,10 +1,12 @@
 const fruitBtn = document.getElementById("fruit-btn");
 const fruitUrl = "https://creepy-headscarf-hen.cyclic.app/fruit";
+const localhost = "http://localhost:9090/fruit";
 const contentEl = document.getElementById("api-content");
 
 fruitBtn.addEventListener("click", function () {
   console.log("Fruit-knapp klickad");
-  fetch(fruitUrl, {
+  fetch(localhost, {
+    method: "GET",
     credentials: "include",
     headers: {
       "Content-Type": "text/html",
@@ -15,7 +17,15 @@ fruitBtn.addEventListener("click", function () {
     })
     .then((res) => {
       console.log(res);
-      console.log(typeof res);
       contentEl.innerHTML = res;
     });
 });
+
+class putReq {
+  async put(url, data) {
+    fetch("/", {
+      method: "PUT",
+      credentials: "include",
+    });
+  }
+}
