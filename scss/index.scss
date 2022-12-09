@@ -1,7 +1,18 @@
 @import url("https://cdn.jsdelivr.net/gh/jgthms/minireset.css@master/minireset.min.css");
+
+html {
+    background: radial-gradient(at 50vw bottom, rgb(0, 0, 0) 0vw, rgb(4, 45, 59) 50vw, rgb(4, 45, 59) 100vw) no-repeat;
+    background-position: bottom;
+    background-size: cover;
+}
+
 body{
     font-family: "Times New Roman";
     background: #e0f1f5;
+    height: 100vh;
+    width: 100vw;
+    background: url("../index.svg");
+    background-size: cover;
 }
 
 h1{
@@ -15,23 +26,25 @@ h2, h3, h4, h5, h6{
 .container{
     display: grid;
     grid-template-areas: 
-    "header header"
+    "header header header"
+    "main main"
     "main main";
-    grid-gap: 1rem;
+    grid-template-columns: 2fr 1fr;
+    column-gap: 1rem;
+    row-gap: 2rem;
 }
 
 .content{
     outline: rgb(255, 0, 0) solid;
     margin: 1rem;
     padding: 1rem;
-    //height: 95vh;
-    //width: 50vw;
     background: #368c9c;
     
 }
 
 .info{
     grid-area: header;
+    grid-column: 1;
 }
 
 .info2{
@@ -42,6 +55,11 @@ h2, h3, h4, h5, h6{
 .info3{
     grid-area: main;
     grid-column: 1;
+}
+
+.info4{
+    grid-area: header;
+    grid-column: 2;
 }
 
 #fruit-btn{
@@ -59,16 +77,10 @@ h2, h3, h4, h5, h6{
     border-radius: 30px;
 
     &:hover{
-        background: #cbcbcb;
-        border-color: #cbcbcb;
+        background: #fefefe;
+        border-color: #fefefe;
+        box-shadow: 4px 4px 3px 1px #343434;
     }
-}
-
-.headers{
-    display: grid;
-    place-items: center;
-    grid-column: 1 / span 1;
-    grid-row: first-line / 1;
 }
 
 h1{
