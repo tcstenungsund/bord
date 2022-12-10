@@ -1,11 +1,18 @@
 @import url("https://cdn.jsdelivr.net/gh/jgthms/minireset.css@master/minireset.min.css");
-h1{
-    color:hotpink
+h1 {
+  color: hotpink;
 }
 
-#scanButton{
-    display: none;
-    width: 4rem;
-    height: 2rem;
-} 
+#scanButton {
+  display: none;
+  width: 4rem;
+  height: 2rem;
+}
 
+main {
+  width: max-content;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

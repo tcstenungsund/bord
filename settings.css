@@ -1,0 +1,35 @@
+body div {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  font-size: 1.5rem;
+}
+
+div button {
+  margin-left: 10px;
+}
+
+div button:first-of-type {
+  margin-left: 50px;
+}
+
+body {
+  margin: auto;
+  width: fit-content;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  margin-left: 50px;
+}
+
+p {
+  border: 2px black solid;
+  padding: 10px;
+}
