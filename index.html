@@ -53,41 +53,44 @@
     <meta name="msapplication-config" content="/browserconfig.xml" />
 
     <!-- Styles -->
-
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/gh/jgthms/minireset.css@master/minireset.min.css"
-    />
     <link rel="stylesheet" href="css/index.css" />
-
-    <!-- Javscript -->
-    <script></script>
-    <script defer src="js/main.js"></script>
   </head>
 
   <body>
-    <h1>hej</h1>
+    <main>
+      <h1>hej</h1>
+      <button id="scanButton">Scan</button>
+      <h2></h2>
+      <h3></h3>
 
-    <button id="scanButton">Scan</button>
-
-    <h2></h2>
-
-    <h3></h3>
-
-    <!-- För att gå till inställningar för användaren -->
-    <button onclick="window.location.href = '/settings.html'" id="settings-btn">
+      <!-- För att gå till inställningar för användaren -->
+      <!-- <button onclick="window.location.href = '/settings.html'" id="settings-btn">
       Gå till settings
-    </button>
+    </button> -->
 
-    <!-- För att hämta Fruit-data -->
-    <button id="fruit-btn">Se Fruit</button>
+      <!-- För att hämta Fruit-data -->
+      <button id="fruit-btn">Se Fruit</button>
+      <button id="put-btn">Put</button>
 
-    <p id="api-content">Empty</p>
+      <div class="form">
+        <form>
+          <input type="checkbox" id="is-primary" />
+          <input type="text" placeholder="Page name" id="page-input" />
+          <input type="text" placeholder="Card ID" id="id-input" />
+        </form>
+        <button id="send-btn">Send</button>
+      </div>
 
-    <!-- Här sker hämtningen av Fruit-data när knappen klickas -->
+      <p id="api-content"></p>
+    </main>
+    <!-- For API-requests -->
     <script src="request.js"></script>
 
+    <!-- Other JavaScript -->
+    <script defer src="js/main.js"></script>
     <script src="js/nfc.js"></script>
+
+    <!-- Service Worker -->
     <script>
       // if ("serviceWorker" in navigator) {
       //   window.addEventListener("load", () => {
