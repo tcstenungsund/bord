@@ -51,6 +51,7 @@ sendPutBtn.addEventListener("click", function putInput() {
   } else {
     var cardType = "secondary_card";
   }
+
   fetch(localhost, {
     method: "PUT",
     headers: {
