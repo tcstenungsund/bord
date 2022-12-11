@@ -32,7 +32,13 @@ putBtn.addEventListener("click", function () {
       card_id: "ABC123",
       page_name: "apples",
     }),
-  });
+  })
+    .then((data) => {
+      return data.text();
+    })
+    .then((res) => {
+      console.log(res);
+    });
 });
 
 const sendPutBtn = document.getElementById("send-btn");
@@ -45,9 +51,6 @@ sendPutBtn.addEventListener("click", function putInput() {
   } else {
     var cardType = "secondary_card";
   }
-  console.log("🚀 ~ putInput ~ pageInput", pageInput);
-  console.log("🚀 ~ putInput ~ idInput", idInput);
-  console.log("🚀 ~ putInput ~ cardType", cardType);
 
   fetch(localhost, {
     method: "PUT",
@@ -59,6 +62,11 @@ sendPutBtn.addEventListener("click", function putInput() {
       page_name: pageInput,
       card_id: idInput,
     }),
-  });
-  return;
+  })
+    .then((data) => {
+      return data.text();
+    })
+    .then((res) => {
+      console.log(res);
+    });
 });
