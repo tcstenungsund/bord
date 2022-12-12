@@ -39,18 +39,27 @@ main {
 }
 
 .content {
+  justify-self: center;
+}
+
+.conterner {
   grid-area: main;
   justify-self: center;
 }
 
 h1 {
+  font-size: 2rem;
   margin-top: 0;
   grid-area: header;
 }
 
 h2 {
-  font-size: 1em;
+  font-size: 1.2rem;
   margin: 0;
+}
+
+p {
+  font-size: 1.5rem;
 }
 
 input {
