@@ -58,17 +58,45 @@
 
   <body>
     <main>
-      <h1>hej</h1>
-      <button id="scanButton">Scan</button>
-      <h2></h2>
-      <h3></h3>
+      <div>
+      <h1>Welcome to Project Bord!</h1>
 
+      <h1>Välkommen till Learn OL!</h1>
+
+      </div>
+      <!-- <p>To see Molekylverkstan, click <a href="/molekylverkstan">here</a></p>
+      <p>To see Fruit, click <a href="/fruit">here</a></p> -->
+      <section>
+      <h2>Enter user code:</h2>
+      <form>
+        <input type="text" placeholder="User Code" id="inputBox" />
+        <input type="submit" value="Send" id="sendBtn" onclick="login()" />
+      </form>
+      <p>
+        Klicka för att gå till
+        <a href="localhost:8080/molekylverkstan">Molekylverkstan</a>
+      </p>
+      <p>
+        Klicka för att gå till
+        <a href="localhost:8080/fruit">Fruit</a>
+      </p>
+    </section>
       <!-- För att gå till inställningar för användaren -->
       <!-- <button onclick="window.location.href = '/settings.html'" id="settings-btn">
       Gå till settings
     </button> -->
 
       <!-- För att hämta Fruit-data -->
+    </main>
+
+
+    <main class="content">
+
+      <h1>hej</h1>
+      <button id="scanButton">Scan</button>
+      <h2></h2>
+      <h3></h3>
+
       <button id="fruit-btn">Se Fruit</button>
       <button id="put-btn">Put</button>
 
@@ -83,6 +111,7 @@
 
       <p id="api-content"></p>
     </main>
+
     <!-- For API-requests -->
     <script type="module" src="request.js"></script>
 
