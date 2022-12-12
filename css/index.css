@@ -5,18 +5,7 @@
   height: 2rem;
 }
 
-/*main {
-  width: max-content;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}*/
 body {
-  /*position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -40%);*/
   background: #e0f1f5;
   color: #f5f5f5;
   display: grid;
@@ -31,15 +20,12 @@ body {
 main {
   margin: 3rem;
   font-size: 1.5em;
-  padding: 10rem;
+  padding: 8rem;
   background-color: #368c9c;
   width: max-content;
   border-radius: 2em;
   box-shadow: 0px 6px 10px #333333;
-}
-
-.content {
-  justify-self: center;
+  justify-content: center;
 }
 
 .conterner {
@@ -47,10 +33,15 @@ main {
   justify-self: center;
 }
 
+.content {
+  justify-content: center;
+}
+
 h1 {
   font-size: 2rem;
   margin-top: 0;
   grid-area: header;
+  margin-bottom: 2rem;
 }
 
 h2 {
@@ -60,6 +51,7 @@ h2 {
 
 p {
   font-size: 1.5rem;
+  margin: 2rem;
 }
 
 input {
