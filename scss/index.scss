@@ -1,7 +1,7 @@
 @import url("https://cdn.jsdelivr.net/gh/jgthms/minireset.css@master/minireset.min.css");
-h1 {
+/*h1 {
   //color: hotpink;
-}
+}*/
 
 #scanButton {
   display: none;
@@ -34,7 +34,6 @@ main{
 .conterner{
   grid-area: main;
   justify-self: center;
-  
 }
 
 .content{
@@ -58,5 +57,24 @@ p{
 }
 input {
   margin-top: 0;
+}
+
+@media screen and (max-width: 1280px) and (max-height: 800px){
+  main{
+    margin: 2rem;
+    font-size: 1.2rem;
+    padding: 6rem;
+  }
+
+  h1 {
+    font-size: 1.2rem;
+  }
+  h2 {
+    font-size: 1rem;
+  }
+  
+  p{
+    font-size: 1.1rem;
+  }
 }
 
