@@ -7,7 +7,7 @@ const localhost = "http://localhost:8080/fruit";
 
 fruitBtn.addEventListener("click", function () {
   console.log("Fruit-knapp klickad");
-  fetch(localhost, {
+  fetch(fruitUrl, {
     method: "GET",
     headers: {
       "Content-Type": "text/html",
