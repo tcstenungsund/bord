@@ -2,12 +2,13 @@ const contentEl = document.getElementById("api-content");
 const fruitBtn = document.getElementById("fruit-btn");
 
 const fruitUrl = "https://creepy-headscarf-hen.cyclic.app/fruit";
+const molekylUrl = "https://creepy-headscarf-hen.cyclic.app/molekylverkstan";
 const localhostFruit = "http://localhost:8080/fruit";
 const localhostMolekyl = "http://localhost:8080/molekylverkstan";
 
 fruitBtn.addEventListener("click", function () {
   console.log("Fruit-knapp klickad");
-  fetch(localhostFruit, {
+  fetch(fruitUrl, {
     method: "GET",
     headers: {
       "Content-Type": "text/html",
@@ -23,7 +24,7 @@ fruitBtn.addEventListener("click", function () {
 
 const putBtn = document.getElementById("put-btn");
 putBtn.addEventListener("click", function () {
-  fetch(localhostFruit, {
+  fetch(fruitUrl, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
@@ -53,7 +54,7 @@ sendPutBtn.addEventListener("click", function putInput() {
     var cardType = "secondary_card";
   }
 
-  fetch(localhostFruit, {
+  fetch(fruitUrl, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
