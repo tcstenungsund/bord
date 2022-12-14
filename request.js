@@ -1,3 +1,4 @@
+import { cardIdNfc } from "./js/main.js";
 const contentEl = document.getElementById("api-content");
 const fruitBtn = document.getElementById("fruit-btn");
 
@@ -44,9 +45,10 @@ putBtn.addEventListener("click", function () {
 });
 
 const sendPutBtn = document.getElementById("send-btn");
-sendPutBtn.addEventListener("click", function putInput() {
+sendPutBtn.addEventListener("click", async function putInput() {
   const pageInput = document.getElementById("page-input").value;
-  const idInput = document.getElementById("id-input").value;
+  // let idInput = document.getElementById("id-input").value;
+  const idInput = await cardIdNfc();
   const isPrimary = document.getElementById("is-primary").checked;
   if (isPrimary) {
     var cardType = "primary_card";
