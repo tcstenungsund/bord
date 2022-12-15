@@ -121,11 +121,103 @@ h1{
     color:rgb(0, 0, 0);
 }
 
-#scanButton{
-    display: none;
-    width: 4rem;
-    height: 2rem;
-} 
+#scanButton {
+  display: none;
+  width: 4rem;
+  height: 2rem;
+}
+
+body {
+  background: #e0f1f5;
+  color: #f5f5f5;
+  display: grid;
+  grid-template: "header header header" "main main main";
+  grid-row-gap: 1rem;
+  grid-column-gap: 1rem;
+  justify-content: center;
+  align-content: center;
+  color: #343434;
+}
+main{
+  margin: 3rem;
+  font-size: 1.5em;
+  padding: 8rem;
+  background-color: #368c9c;
+  width: max-content;
+  border-radius: 2em;
+  box-shadow: 0px 6px 10px #333333;
+  justify-content: center;
+}
+
+.conterner{
+  grid-area: main;
+  justify-self: center;
+}
+
+.content{
+  justify-content: center;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-top: 0;
+  grid-area: header;
+  margin-bottom: 2rem;
+}
+h2 {
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.settings{
+  height: max-content;
+  width: max-content;
+  background-color: #368c9c;
+  padding: 1rem;
+  margin-top: 3rem;
+  margin-right: -6rem;
+  border-radius: 1rem;
+  box-shadow: 0px 6px 10px #333333;
+  grid-area: header;
+  grid-column: 3;
+
+  &:hover{
+    background-color: #333333;
+  }
+}
+
+.settings-icon{
+  width: 2rem;
+  height: auto;
+}
+
+p{
+  font-size: 1.5rem;
+  margin: 2rem;
+}
+
+input {
+  margin-top: 0;
+}
+
+@media screen and (max-width: 1280px) and (max-height: 800px){
+  main{
+    margin: 2rem;
+    font-size: 1.2rem;
+    padding: 6rem;
+  }
+
+  h1 {
+    font-size: 1.2rem;
+  }
+  h2 {
+    font-size: 1rem;
+  }
+  
+  p{
+    font-size: 1.1rem;
+  }
+}
 
 footer{
     display: grid;
@@ -136,4 +228,3 @@ footer{
         color: white;
     }
 }
-
