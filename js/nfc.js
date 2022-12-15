@@ -74,3 +74,11 @@ function workerMessage() {
     }
   });
 }
+
+
+const btn = document.querySelector(".settings-btn");
+btn.addEventListener("click", function(){
+  document.querySelector("#layout-start").style.display = "none";
+  document.querySelector("#layout-air").style.display = "block";
+
+});
