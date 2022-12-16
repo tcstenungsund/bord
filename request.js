@@ -5,6 +5,7 @@ const fruitBtn = document.getElementById("fruit-btn");
 const hostingBase = "https://creepy-headscarf-hen.cyclic.app";
 const localhostBase = "http://localhost:8080";
 
+//* Fetches data from the backend
 fruitBtn.addEventListener("click", function () {
   let user = "fruit";
   let page = "apples";
@@ -22,9 +23,10 @@ fruitBtn.addEventListener("click", function () {
     });
 });
 
+//* Sends pre-specified data to the backend
 const putBtn = document.getElementById("put-btn");
 putBtn.addEventListener("click", function () {
-  fetch(localhostBase, {
+  fetch(`${localhostBase}/card`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
@@ -43,6 +45,7 @@ putBtn.addEventListener("click", function () {
     });
 });
 
+//* Sends custom data to the backend
 const sendPutBtn = document.getElementById("send-btn");
 sendPutBtn.addEventListener("click", async function putInput() {
   const pageInput = document.getElementById("page-input").value;
@@ -55,7 +58,7 @@ sendPutBtn.addEventListener("click", async function putInput() {
     var cardType = "secondary_card";
   }
 
-  fetch(localhostBase, {
+  fetch(`${localhostBase}/card`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
@@ -64,6 +67,27 @@ sendPutBtn.addEventListener("click", async function putInput() {
       card_type: cardType,
       page_name: pageInput,
       card_id: idInput,
+    }),
+  })
+    .then((data) => {
+      return data.text();
+    })
+    .then((res) => {
+      console.log(res);
+    });
+});
+
+//* Refreshes the content of the database with possible changes in the markdown repos
+const refreshBtn = document.getElementById("refresh-btn");
+let user = "fruit";
+refreshBtn.addEventListener("click", async () => {
+  fetch(`${localhostBase}/refresh`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      user: user,
     }),
   })
     .then((data) => {
