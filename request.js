@@ -2,14 +2,13 @@ import { cardIdNfc } from "./js/main.js";
 const contentEl = document.getElementById("api-content");
 const fruitBtn = document.getElementById("fruit-btn");
 
-const fruitUrl = "https://creepy-headscarf-hen.cyclic.app/fruit";
-const molekylUrl = "https://creepy-headscarf-hen.cyclic.app/molekylverkstan";
-const localhostFruit = "http://localhost:8080/fruit";
-const localhostMolekyl = "http://localhost:8080/molekylverkstan";
+const hostingBase = "https://creepy-headscarf-hen.cyclic.app";
+const localhostBase = "http://localhost:8080";
 
 fruitBtn.addEventListener("click", function () {
-  console.log("Fruit-knapp klickad");
-  fetch(fruitUrl, {
+  let user = "fruit";
+  let page = "apples";
+  fetch(`${localhostBase}/${user}/${page}`, {
     method: "GET",
     headers: {
       "Content-Type": "text/html",
@@ -25,7 +24,7 @@ fruitBtn.addEventListener("click", function () {
 
 const putBtn = document.getElementById("put-btn");
 putBtn.addEventListener("click", function () {
-  fetch(fruitUrl, {
+  fetch(localhostBase, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
@@ -47,16 +46,16 @@ putBtn.addEventListener("click", function () {
 const sendPutBtn = document.getElementById("send-btn");
 sendPutBtn.addEventListener("click", async function putInput() {
   const pageInput = document.getElementById("page-input").value;
-  // let idInput = document.getElementById("id-input").value;
-  const idInput = await cardIdNfc();
   const isPrimary = document.getElementById("is-primary").checked;
+  const idInput = await cardIdNfc();
+  // let idInput = document.getElementById("id-input").value;
   if (isPrimary) {
     var cardType = "primary_card";
   } else {
     var cardType = "secondary_card";
   }
 
-  fetch(fruitUrl, {
+  fetch(localhostBase, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
