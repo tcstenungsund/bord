@@ -160,13 +160,11 @@ h2, h3, h4, h5, h6{
 
   .text-box{
     display: none;
-    width: fit-content;
-    height: fit-content;
     //line-height: 1.5rem;
-    width: 90%;
-    height: 80%;
-    padding: 7%;
-    margin: 0 10%;
+    width: 125%;
+    height: 130%;
+    padding: 1rem;
+    margin: 0;
     padding: 2rem;
     
     background: url("../pilar.svg") no-repeat center center;
