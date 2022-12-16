@@ -91,6 +91,7 @@ refreshBtn.addEventListener("click", async () => {
     }),
   })
     .then((data) => {
+      console.log(data.text);
       return data.text();
     })
     .then((res) => {
