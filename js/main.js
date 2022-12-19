@@ -1,4 +1,4 @@
-export function cardIdNfc(){
+export async function cardIdNfc(){
     const text = document.querySelector("h1");
     const info = document.querySelector("h2");
 
