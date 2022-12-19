@@ -74,6 +74,12 @@ h2 {
   height: auto;
 }
 
+#refresh-btn {
+  position: fixed;
+  margin: 4em;
+  cursor: pointer;
+}
+
 p {
   font-size: 1.5rem;
   margin: 2rem;
