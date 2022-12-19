@@ -8,8 +8,8 @@ const localhostBase = "http://localhost:8080";
 //* Fetches data from the backend
 fruitBtn.addEventListener("click", function () {
   let user = "fruit";
-  let page = "apples";
-  fetch(`${localhostBase}/${user}/${page}`, {
+  let card = "4a:2c:74:1b";
+  fetch(`${localhostBase}/${user}/${card}`, {
     method: "GET",
     headers: {
       "Content-Type": "text/html",
