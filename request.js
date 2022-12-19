@@ -5,10 +5,31 @@ const fruitBtn = document.getElementById("fruit-btn");
 const hostingBase = "https://creepy-headscarf-hen.cyclic.app";
 const localhostBase = "http://localhost:8080";
 
-fruitBtn.addEventListener("click", function () {
+//fruitBtn.addEventListener("click", function () {
+  //let user = "fruit";
+  //let page = "apples";
+  //fetch(`${localhostBase}/${user}/${page}`, {
+    //method: "GET",
+    //headers: {
+      //"Content-Type": "text/html",
+    //},
+  //})
+    //.then((data) => {
+      //return data.text();
+    //})
+    //.then((res) => {
+      //contentEl.innerHTML = res;
+    //});
+//});
+
+if(await cardIdNfc){
+  getFruit();
+}
+
+function getFruit(){
   let user = "fruit";
   let page = "apples";
-  fetch(`${localhostBase}/${user}/${page}`, {
+  fetch(`${hostingBase}/${user}/${page}`, {
     method: "GET",
     headers: {
       "Content-Type": "text/html",
@@ -20,7 +41,7 @@ fruitBtn.addEventListener("click", function () {
     .then((res) => {
       contentEl.innerHTML = res;
     });
-});
+}
 
 const putBtn = document.getElementById("put-btn");
 putBtn.addEventListener("click", function () {
