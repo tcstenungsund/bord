@@ -1,4 +1,4 @@
-import { cardIdNfc } from "./js/main.js";
+import { cardIdNfc } from "./js/nfc.js";
 const contentEl = document.getElementById("api-content");
 const fruitBtn = document.getElementById("fruit-btn");
 

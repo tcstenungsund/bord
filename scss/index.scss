@@ -155,10 +155,10 @@ h2, h3, h4, h5, h6{
       align-self: center;
 
       background: url("../index.svg") no-repeat;
-      background-position: bottom;
+      background-size: contain;
   }
 
-  .text-box{
+  .text-box-air{
     display: none;
     //line-height: 1.5rem;
     width: 125%;
@@ -239,6 +239,10 @@ h2, h3, h4, h5, h6{
       grid-area: main;
       grid-column: 3;
       grid-row: 3;
+  }
+
+  ul{
+    list-style: inside;
   }
 
   #fruit-btn{

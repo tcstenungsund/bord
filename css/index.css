@@ -132,9 +132,9 @@ h2, h3, h4, h5, h6 {
   justify-self: center;
   align-self: center;
   background: url("../index.svg") no-repeat;
-  background-position: bottom;
+  background-size: contain;
 }
-#layout-air .text-box {
+#layout-air .text-box-air {
   display: none;
   width: 125%;
   height: 130%;
@@ -200,6 +200,9 @@ h2, h3, h4, h5, h6 {
   grid-area: main;
   grid-column: 3;
   grid-row: 3;
+}
+#layout-air ul {
+  list-style: inside;
 }
 #layout-air #fruit-btn {
   margin: 1rem;
