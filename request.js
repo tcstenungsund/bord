@@ -6,45 +6,10 @@ const hostingBase = "https://creepy-headscarf-hen.cyclic.app";
 const localhostBase = "http://localhost:8080";
 
 //* Fetches data from the backend
-fruitBtn.addEventListener("click", function () {
+/*fruitBtn.addEventListener("click", function () {
   let user = "fruit";
   let card = "4a:2c:74:1b";
   fetch(`${localhostBase}/${user}/${card}`, {
-    //method: "GET",
-    //headers: {
-      //"Content-Type": "text/html",
-    //},
-  //})
-    //.then((data) => {
-      //return data.text();
-    //})
-    //.then((res) => {
-      //contentEl.innerHTML = res;
-    //});
-//});
-
-async function starRequest(){
-  const idInput = await cardIdNfc();
-
-  fruitBtn.innerHTML =  idInput;
-
-  if(idInput !== undefined){
-    fruitBtn.style.backgroundColor = "blue";
-    getFruit();
-  }
-  else{
-    fruitBtn.style.backgroundColor = "yellow";
-  }
-  
-}
-
-starRequest();
-
-
-function getFruit(){
-  let user = "fruit";
-  let page = "apples";
-  fetch(`${hostingBase}/${user}/${page}`, {
     method: "GET",
     headers: {
       "Content-Type": "text/html",
@@ -56,7 +21,37 @@ function getFruit(){
     .then((res) => {
       contentEl.innerHTML = res;
     });
+});*/
+
+async function starRequest(){
+  const idInput = await cardIdNfc();
+
+  fruitBtn.innerHTML =  idInput;
+
+  if(idInput !== undefined){
+    fruitBtn.style.backgroundColor = "blue";
+    let user = "fruit";
+    let card = "4a:2c:74:1b";
+    fetch(`${localhostBase}/${user}/${card}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "text/html",
+      },
+    })
+      .then((data) => {
+        return data.text();
+      })
+      .then((res) => {
+        contentEl.innerHTML = res;
+      });
+  }
+  else{
+    fruitBtn.style.backgroundColor = "yellow";
+  }
+  
 }
+
+starRequest();
 
 //* Sends pre-specified data to the backend
 const putBtn = document.getElementById("put-btn");
