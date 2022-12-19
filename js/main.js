@@ -1,4 +1,5 @@
-export function cardIdNfc(){
+export async function cardIdNfc(){
+    return new Promise(async (resolve) => {
     const text = document.querySelector("h1");
     const info = document.querySelector("h2");
 
@@ -22,7 +23,7 @@ export function cardIdNfc(){
         ndef.addEventListener("reading", ({ message, serialNumber }) => {
             info.innerHTML = message + ", " + serialNumber;
             text.innerHTML = "NDEF message read.";
-            return serialNumber;
+            resolve(serialNumber);
         });
 
         // If it get a error while starting the scan
@@ -77,5 +78,5 @@ export function cardIdNfc(){
         }
     });
     }
-
+    })
 }

@@ -10,6 +10,41 @@ fruitBtn.addEventListener("click", function () {
   let user = "fruit";
   let card = "4a:2c:74:1b";
   fetch(`${localhostBase}/${user}/${card}`, {
+    //method: "GET",
+    //headers: {
+      //"Content-Type": "text/html",
+    //},
+  //})
+    //.then((data) => {
+      //return data.text();
+    //})
+    //.then((res) => {
+      //contentEl.innerHTML = res;
+    //});
+//});
+
+async function starRequest(){
+  const idInput = await cardIdNfc();
+
+  fruitBtn.innerHTML =  idInput;
+
+  if(idInput !== undefined){
+    fruitBtn.style.backgroundColor = "blue";
+    getFruit();
+  }
+  else{
+    fruitBtn.style.backgroundColor = "yellow";
+  }
+  
+}
+
+starRequest();
+
+
+function getFruit(){
+  let user = "fruit";
+  let page = "apples";
+  fetch(`${hostingBase}/${user}/${page}`, {
     method: "GET",
     headers: {
       "Content-Type": "text/html",
@@ -21,7 +56,7 @@ fruitBtn.addEventListener("click", function () {
     .then((res) => {
       contentEl.innerHTML = res;
     });
-});
+}
 
 //* Sends pre-specified data to the backend
 const putBtn = document.getElementById("put-btn");
@@ -51,6 +86,7 @@ sendPutBtn.addEventListener("click", async function putInput() {
   const pageInput = document.getElementById("page-input").value;
   const isPrimary = document.getElementById("is-primary").checked;
   const idInput = await cardIdNfc();
+
   // let idInput = document.getElementById("id-input").value;
   if (isPrimary) {
     var cardType = "primary_card";
