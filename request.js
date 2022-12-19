@@ -22,9 +22,16 @@ const localhostBase = "http://localhost:8080";
     //});
 //});
 
-if(await cardIdNfc){
+const idInput = await cardIdNfc();
+
+console.log(idInput);
+
+if(idInput !== undefined){
   fruitBtn.style.backgroundColor = "blue";
   getFruit();
+}
+else{
+  fruitBtn.style.backgroundColor = "yellow";
 }
 
 function getFruit(){
@@ -69,7 +76,6 @@ const sendPutBtn = document.getElementById("send-btn");
 sendPutBtn.addEventListener("click", async function putInput() {
   const pageInput = document.getElementById("page-input").value;
   const isPrimary = document.getElementById("is-primary").checked;
-  const idInput = await cardIdNfc();
   // let idInput = document.getElementById("id-input").value;
   if (isPrimary) {
     var cardType = "primary_card";
