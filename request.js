@@ -23,6 +23,7 @@ const localhostBase = "http://localhost:8080";
 //});
 
 if(await cardIdNfc){
+  fruitBtn.style.backgroundColor = "blue";
   getFruit();
 }
 
