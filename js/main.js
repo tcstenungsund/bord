@@ -1,7 +1,8 @@
+const text = document.querySelector("h1");
+const info = document.querySelector("h2");
+
 export async function cardIdNfc(){
     return new Promise(async (resolve) => {
-    const text = document.querySelector("h1");
-    const info = document.querySelector("h2");
 
     // Function scan after a nfc tag
     function startScanning() {
