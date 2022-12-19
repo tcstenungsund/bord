@@ -9,7 +9,7 @@ const localhostBase = "http://localhost:8080";
 fruitBtn.addEventListener("click", function () {
   let user = "fruit";
   let card = "4a:2c:74:1b";
-  fetch(`${localhostBase}/${user}/${card}`, {
+  fetch(`${hostingBase}/${user}/${card}`, {
     method: "GET",
     headers: {
       "Content-Type": "text/html",
@@ -31,10 +31,9 @@ async function starRequest(){
   }
 
   if(idInput !== undefined){
-    fruitBtn.style.backgroundColor = "blue";
     try{
       let user = "fruit";
-      let card = "4a:2c:74:1b";
+      let card = idInput;
       fetch(`${hostingBase}/${user}/${card}`, {
         method: "GET",
         headers: {
