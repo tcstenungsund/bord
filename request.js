@@ -31,11 +31,10 @@ async function starRequest(){
   }
 
   if(idInput !== undefined){
-    fruitBtn.style.backgroundColor = "blue";
     try{
       let user = "fruit";
-      let card = "4a:2c:74:1b";
-      fetch(`${hostingBase}/${user}/${card}`, {
+      let card = idInput;
+      fetch(`${localhostBase}/${user}/${card}`, {
         method: "GET",
         headers: {
           "Content-Type": "text/html",
