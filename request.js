@@ -24,7 +24,7 @@ const localhostBase = "http://localhost:8080";
 
 const idInput = await cardIdNfc();
 
-console.log(idInput);
+fruitBtn.innerHTML = idInput;
 
 if(idInput !== undefined){
   fruitBtn.style.backgroundColor = "blue";
