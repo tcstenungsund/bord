@@ -76,7 +76,7 @@ function workerMessage() {
 }
 
 
-export function cardIdNfc(){
+/*export function cardIdNfc(){
   const text = document.querySelector("h1");
   const info = document.querySelector("h2");
 
@@ -156,4 +156,4 @@ export function cardIdNfc(){
   });
   }
 
-}
+}*/
