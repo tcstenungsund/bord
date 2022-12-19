@@ -31,24 +31,30 @@ async function starRequest(){
   }
 
   if(idInput !== undefined){
-    let user = "fruit";
-    let card = "4a:2c:74:1b";
-    fetch(`${hostingBase}/${user}/${card}`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "text/html",
-      },
-    })
+    try{
+      let user = "fruit";
+      let card = "4a:2c:74:1b";
+      fetch(`${hostingBase}/${user}/${card}`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "text/html",
+        },
+      })
       .then((data) => {
         return data.text();
       })
       .then((res) => {
         contentEl.innerHTML = res;
       });
+    }
+    catch(error){
+      contentEl.innerHTML = error;
+    }
   }
   else{
     fruitBtn.style.backgroundColor = "yellow";
   }
+
   
 }
 
