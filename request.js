@@ -8,8 +8,8 @@ const localhostBase = "http://localhost:9090";
 // Fetches data from the backend
 fruitBtn.addEventListener("click", function () {
   let user = "fruit";
-  let card = "4a:2c:74:1b";
-  fetch(`${hostingBase}/${user}/${card}`, {
+  let exampleCard = "4a:2c:74:1b";
+  fetch(`${localhostBase}/${user}/${exampleCard}`, {
     method: "GET",
     headers: {
       "Content-Type": "text/html",
@@ -83,9 +83,10 @@ const sendPutBtn = document.getElementById("send-btn");
 sendPutBtn.addEventListener("click", async function putInput() {
   const pageInput = document.getElementById("page-input").value;
   const isPrimary = document.getElementById("is-primary").checked;
-  const idInput = await cardIdNfc();
+  const userInput = document.getElementById("user-input").value;
+  // const idInput = await cardIdNfc();
+  let idInput = document.getElementById("id-input").value;
 
-  // let idInput = document.getElementById("id-input").value;
   if (isPrimary) {
     var cardType = "primary_card";
   } else {
@@ -98,6 +99,7 @@ sendPutBtn.addEventListener("click", async function putInput() {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
+      user: userInput,
       card_type: cardType,
       page_name: pageInput,
       card_id: idInput,
