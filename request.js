@@ -3,7 +3,7 @@ const contentEl = document.getElementById("api-content");
 const fruitBtn = document.getElementById("fruit-btn");
 
 const hostingBase = "https://scary-duck-leotard.cyclic.app/";
-const localhostBase = "http://localhost:8080";
+const localhostBase = "http://localhost:9090";
 
 // Fetches data from the backend
 fruitBtn.addEventListener("click", function () {
