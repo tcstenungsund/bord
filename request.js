@@ -2,7 +2,7 @@ import { cardIdNfc } from "./js/main.js";
 const contentEl = document.getElementById("api-content");
 const fruitBtn = document.getElementById("fruit-btn");
 
-const hostingBase = "https://creepy-headscarf-hen.cyclic.app";
+const hostingBase = "https://scary-duck-leotard.cyclic.app/";
 const localhostBase = "http://localhost:8080";
 
 // Fetches data from the backend
@@ -23,15 +23,15 @@ fruitBtn.addEventListener("click", function () {
     });
 });
 
-async function starRequest(){
+async function starRequest() {
   const idInput = await cardIdNfc();
 
-  if(idInput === "4a:2c:74:1b"){
-    fruitBtn.innerHTML =  idInput;
+  if (idInput === "4a:2c:74:1b") {
+    fruitBtn.innerHTML = idInput;
   }
 
-  if(idInput !== undefined){
-    try{
+  if (idInput !== undefined) {
+    try {
       let user = "fruit";
       let card = idInput;
       fetch(`${hostingBase}/${user}/${card}`, {
@@ -40,22 +40,18 @@ async function starRequest(){
           "Content-Type": "text/html",
         },
       })
-      .then((data) => {
-        return data.text();
-      })
-      .then((res) => {
-        contentEl.innerHTML = res;
-      });
-    }
-    catch(error){
+        .then((data) => {
+          return data.text();
+        })
+        .then((res) => {
+          contentEl.innerHTML = res;
+        });
+    } catch (error) {
       contentEl.innerHTML = error;
     }
-  }
-  else{
+  } else {
     fruitBtn.style.backgroundColor = "yellow";
   }
-
-  
 }
 
 starRequest();
