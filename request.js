@@ -9,7 +9,7 @@ const localhostBase = "http://localhost:9090";
 fruitBtn.addEventListener("click", function () {
   let user = "fruit";
   let exampleCard = "4a:2c:74:1b";
-  fetch(`${localhostBase}/${user}/${exampleCard}`, {
+  fetch(`${hostingBase}/${user}/${exampleCard}`, {
     method: "GET",
     headers: {
       "Content-Type": "text/html",
@@ -59,14 +59,14 @@ startRequest();
 //* Sends pre-specified data to the backend
 const putBtn = document.getElementById("put-btn");
 putBtn.addEventListener("click", function () {
-  fetch(`${localhostBase}/card`, {
+  fetch(`${hostingBase}/card`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
       user: "molekylverkstan",
-      card_type: "primary_card",
+      card_type: "secondary_card",
       card_id: "ABC123",
       page_name: "about",
     }),
@@ -94,7 +94,7 @@ sendPutBtn.addEventListener("click", async function putInput() {
     var cardType = "secondary_card";
   }
 
-  fetch(`${localhostBase}/card`, {
+  fetch(`${hostingBase}/card`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
@@ -118,7 +118,7 @@ sendPutBtn.addEventListener("click", async function putInput() {
 const refreshBtn = document.getElementById("refresh-btn");
 // let user = "fruit";
 refreshBtn.addEventListener("click", async () => {
-  fetch(`${localhostBase}/refresh`, {
+  fetch(`${hostingBase}/refresh`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
