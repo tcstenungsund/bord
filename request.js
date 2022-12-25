@@ -23,7 +23,7 @@ fruitBtn.addEventListener("click", function () {
     });
 });
 
-async function starRequest() {
+async function startRequest() {
   const idInput = await cardIdNfc();
 
   if (idInput === "4a:2c:74:1b") {
@@ -54,7 +54,7 @@ async function starRequest() {
   }
 }
 
-starRequest();
+startRequest();
 
 //* Sends pre-specified data to the backend
 const putBtn = document.getElementById("put-btn");
@@ -65,9 +65,10 @@ putBtn.addEventListener("click", function () {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
+      user: "molekylverkstan",
       card_type: "primary_card",
       card_id: "ABC123",
-      page_name: "apples",
+      page_name: "about",
     }),
   })
     .then((data) => {
@@ -115,19 +116,15 @@ sendPutBtn.addEventListener("click", async function putInput() {
 
 //* Refreshes the content of the database with possible changes in the markdown repos
 const refreshBtn = document.getElementById("refresh-btn");
-let user = "fruit";
+// let user = "fruit";
 refreshBtn.addEventListener("click", async () => {
   fetch(`${localhostBase}/refresh`, {
-    method: "PUT",
+    method: "GET",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({
-      user: user,
-    }),
   })
     .then((data) => {
-      console.log(data.text);
       return data.text();
     })
     .then((res) => {
