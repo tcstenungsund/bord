@@ -57,6 +57,7 @@
   </head>
   <body>
 
+
     <div id="layout-air">
     <main class="container">
 
@@ -122,9 +123,8 @@
       <a class="settings" href="https://github.com/orgs/tcstenungsund/projects/1/views/1"><img class="settings-icon" src="image/gear.png" alt=""></a>
       <button class="settings-btn"></button>
     <main>
-
-      
       <div class="content">
+
       <h1 class="nfc-info">Welcome to Project Bord!</h1>
 
       <h1>Välkommen till Learn OL!</h1>
@@ -143,6 +143,7 @@
         <a href="localhost:8080/fruit">Fruit</a>
       </p>
     </div>
+
       <!-- För att gå till inställningar för användaren -->
       <!-- <button onclick="window.location.href = '/settings.html'" id="settings-btn">
       Gå till settings
@@ -151,9 +152,7 @@
       <!-- För att hämta Fruit-data -->
     </main>
 
-
     <main class="conterner">
-
       <h1>Hej</h1>
       <button id="scanButton">Scan</button>
       <h2></h2>
@@ -165,6 +164,7 @@
       <div class="form">
         <form>
           <input type="checkbox" id="is-primary" />
+          <input type="text" placeholder="User" id="user-input" />
           <input type="text" placeholder="Page name" id="page-input" />
           <input type="text" placeholder="Card ID" id="id-input" />
         </form>
@@ -181,8 +181,10 @@
     <script type="module" src="request.js"></script>
 
     <!-- Other JavaScript -->
+
     <script src="js/main.js"></script>
     <script  type="module"  src="js/nfc.js"></script>
+
 
     <!-- Service Worker -->
     <script>

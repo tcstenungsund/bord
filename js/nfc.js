@@ -34,6 +34,7 @@ function startScanning() {
 if ('NDEFReader' in window) {
     text.innerHTML = navigator.permissions.query({name:'nfc'});
 
+
   // Look if have permissions for a nfc is granted or not if permissions is not granded make a button that give browser permissions for nfc
   navigator.permissions.query({ name: "nfc" }).then((result) => {
     if (result.state === "granted") {
@@ -51,7 +52,7 @@ if ('NDEFReader' in window) {
   });
 } else {
   // If device have no nfc reader or browser does not support NDEFReader
-  text.innerHTML = "No nfc reader or browser does not support NDEFReader";
+  text.innerHTML = "No nfc reader, or browser does not support NDEFReader";
 }
 
 function webWorker() {
@@ -77,8 +78,9 @@ function workerMessage() {
 
 
 export function cardIdNfc(){
-  const text = document.querySelector("h1");
-  const info = document.querySelector("h2");
+
+  const text = document.querySelector(".nfc-info");
+  const info = document.querySelector(".nfc-output");
 
   // Function scan after a nfc tag
   function startScanning() {
@@ -157,3 +159,4 @@ export function cardIdNfc(){
   }
 
 }
+
