@@ -115,36 +115,12 @@ h2, h3, h4, h5, h6 {
   height: 100vh;
   width: 100vw;
 }
-#layout-air .image-2 {
-  display: none;
-  margin-right: 3rem;
-  grid-area: main;
-  justify-self: center;
-  align-self: center;
-  grid-column: 3;
-  grid-row: 2;
-  background-position: bottom;
+#layout-air h2 {
+  font-size: 1.4rem;
+  text-align: center;
 }
-#layout-air .image {
-  height: 100vh;
-  width: 100vw;
-  grid-area: header;
-  justify-self: center;
-  align-self: center;
-  background: url("../index.svg") no-repeat;
-  background-size: contain;
-}
-#layout-air .text-box-air {
-  display: none;
-  width: 125%;
-  height: 130%;
-  padding: 1rem;
-  margin: 0;
-  padding: 2rem;
-  background: url("../pilar.svg") no-repeat center center;
-  background-position: bottom;
-  justify-self: center;
-  align-self: center;
+#layout-air p {
+  font-size: 1.1rem;
 }
 #layout-air .container {
   display: grid;
@@ -153,22 +129,58 @@ h2, h3, h4, h5, h6 {
   column-gap: 1rem;
   row-gap: 2rem;
 }
+#layout-air .start-image {
+  height: 100vh;
+  width: 100vw;
+  grid-area: header;
+  justify-self: center;
+  align-self: center;
+  background: url("../index.svg") no-repeat;
+  background-position: bottom;
+}
+#layout-air .methanol-image {
+  display: none;
+  margin-right: 3rem;
+  grid-area: main;
+  justify-self: center;
+  align-self: center;
+  background-position: bottom;
+}
+#layout-air .air-text-box {
+  display: none;
+  width: 125%;
+  height: 130%;
+  margin-left: 10rem;
+  margin-bottom: -4rem;
+  padding: 2rem;
+  background: url("../pilar.svg") no-repeat center center;
+  background-size: contain;
+  justify-self: center;
+  align-self: end;
+}
 #layout-air .content {
   margin: 1rem;
   padding: 1rem;
   background: #368c9c;
+}
+#layout-air .left {
+  grid-column: 1;
+}
+#layout-air .center {
+  grid-column: 2;
+}
+#layout-air .right {
+  grid-column: 3;
 }
 #layout-air .title {
   margin-top: 1rem;
   font-size: 2rem;
   color: #f5f5f5;
   grid-area: header;
-  grid-column: 2;
   justify-self: center;
 }
 #layout-air .loge-molekyl {
   grid-area: header;
-  grid-column: 1;
   margin: 1rem;
   margin-top: 2rem;
   width: 9rem;
@@ -176,33 +188,9 @@ h2, h3, h4, h5, h6 {
 }
 #layout-air .loge-project-air {
   grid-area: header;
-  grid-column: 3;
   width: 20rem;
   height: auto;
   justify-self: end;
-}
-#layout-air .info {
-  grid-area: main;
-  grid-column: 1;
-  grid-row: 2;
-}
-#layout-air .info2 {
-  grid-area: main;
-  grid-column: 3;
-  grid-row: 2;
-}
-#layout-air .info3 {
-  grid-area: main;
-  grid-column: 1;
-  grid-row: 3;
-}
-#layout-air .info4 {
-  grid-area: main;
-  grid-column: 3;
-  grid-row: 3;
-}
-#layout-air ul {
-  list-style: inside;
 }
 #layout-air #fruit-btn {
   margin: 1rem;
@@ -222,13 +210,21 @@ h2, h3, h4, h5, h6 {
   border-color: #fefefe;
   box-shadow: 4px 4px 3px 1px #343434;
 }
-#layout-air footer {
-  display: grid;
-  background: #343434;
-  height: 5vh;
-}
-#layout-air footer h1 {
-  color: white;
+@media screen and (max-width: 1280px) and (max-height: 800px) {
+  #layout-air .air-text-box {
+    margin-left: 10rem;
+    margin-bottom: -4rem;
+    padding: 2rem;
+  }
+  #layout-air h1 {
+    font-size: 1.2rem;
+  }
+  #layout-air h2 {
+    font-size: 1rem;
+  }
+  #layout-air p {
+    font-size: 0.9rem;
+  }
 }
 
 /*# sourceMappingURL=index.css.map */

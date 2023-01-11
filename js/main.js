@@ -9,9 +9,9 @@ btn.addEventListener("click", function(){
 
 if(layoutAir.style.display != "none"){
   layoutAir.addEventListener("click", function(){
-    document.querySelector(".image").style.display = "none";
-    document.querySelector(".image-2").style.display = "block";
-    document.querySelector(".text-box-air").style.display = "block";
+    document.querySelector(".start-image").style.display = "none";
+    document.querySelector(".methanol-image").style.display = "block";
+    document.querySelector(".air-text-box").style.display = "block";
 
   })
   
