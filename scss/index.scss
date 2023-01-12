@@ -173,11 +173,25 @@ h2, h3, h4, h5, h6{
     
   }
 
-  .air-text-box{
+  .left.air-text-box{
     display: none;
     width: 125%;
     height: 130%;
     margin-left: 10rem;
+    margin-bottom: -4rem;
+    padding: 2rem;
+    
+    background: url("../pilar.svg") no-repeat center center;
+    background-size: contain;
+
+    justify-self: center;
+    align-self: end;
+  }
+  .right.air-text-box{
+    display: none;
+    width: 125%;
+    height: 130%;
+    margin-right: 10rem;
     margin-bottom: -4rem;
     padding: 2rem;
     
@@ -253,7 +267,7 @@ h2, h3, h4, h5, h6{
 
   @media screen and (max-width: 1280px) and (max-height: 800px){
 
-    .air-text-box{
+    .left.air-text-box{
       margin-left: 10rem;
       margin-bottom: -4rem;
       padding: 2rem;
