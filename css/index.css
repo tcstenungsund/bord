@@ -140,35 +140,29 @@ h2, h3, h4, h5, h6 {
 }
 #layout-air .methanol-image {
   display: none;
-  margin-right: 3rem;
+  width: 125%;
+  margin-right: 12rem;
+  margin-bottom: 2rem;
   grid-area: main;
   justify-self: center;
   align-self: center;
   background-position: bottom;
 }
-#layout-air .left.air-text-box {
+#layout-air .air-text-box {
   display: none;
-  width: 125%;
-  height: 130%;
-  margin-left: 10rem;
-  margin-bottom: -4rem;
+  width: 40vw;
+  margin-top: 2rem;
   padding: 2rem;
-  background: url("../pilar.svg") no-repeat center center;
-  background-size: contain;
+  border: rgb(62, 88, 25) dashed 0.5rem;
+  border-radius: 2rem;
   justify-self: center;
   align-self: end;
 }
+#layout-air .left.air-text-box {
+  margin-left: 6rem;
+}
 #layout-air .right.air-text-box {
-  display: none;
-  width: 125%;
-  height: 130%;
-  margin-right: 10rem;
-  margin-bottom: -4rem;
-  padding: 2rem;
-  background: url("../pilar.svg") no-repeat center center;
-  background-size: contain;
-  justify-self: center;
-  align-self: end;
+  margin-right: 6rem;
 }
 #layout-air .content {
   margin: 1rem;
@@ -225,8 +219,7 @@ h2, h3, h4, h5, h6 {
 }
 @media screen and (max-width: 1280px) and (max-height: 800px) {
   #layout-air .left.air-text-box {
-    margin-left: 10rem;
-    margin-bottom: -8rem;
+    margin-left: 8rem;
     padding: 2rem;
   }
   #layout-air h1 {
