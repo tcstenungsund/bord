@@ -2,7 +2,7 @@ import { cardIdNfc } from "./js/main.js";
 const contentEl = document.getElementById("api-content");
 const fruitBtn = document.getElementById("fruit-btn");
 
-const hostingBase = "https://mushy-ruby-coral.cyclic.app";
+const hostingBase = "https://learnol.cyclic.app";
 const localhostBase = "http://localhost:9090";
 
 // Fetches data from the backend
