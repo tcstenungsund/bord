@@ -1,4 +1,12 @@
 @import url("https://cdn.jsdelivr.net/gh/jgthms/minireset.css@master/minireset.min.css");
+:root {
+  --main-bg-color: rgb(20, 18, 18);
+  --secondary-bg-color: rgb(58, 57, 57);
+  --bubble-bg-color: #203354;
+  --circle-bg-color: radial-gradient(circle at 100px 100px, #5cabff, #000);
+  --maincircle-bg-color: radial-gradient(circle at 100px 100px, #d01dd6, #000);
+}
+
 html {
   background: #e0f1f5;
   background-position: bottom;
@@ -231,6 +239,324 @@ h2, h3, h4, h5, h6 {
   #layout-air p {
     font-size: 0.9rem;
   }
+}
+
+#layout-fruit {
+  display: none;
+  /* Item */
+  /*index*/
+}
+#layout-fruit .grid {
+  display: grid;
+  grid-template-columns: 50vw 50vw;
+  grid-template-areas: "left right";
+  overflow: hidden;
+  background-color: var(--main-bg-color);
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  font-family: Hemi-head;
+}
+#layout-fruit .left {
+  display: grid;
+  grid-area: left;
+  grid-template-areas: "main-info graph" "logo info";
+}
+#layout-fruit .left .graph svg {
+  transform: rotate(0deg) translateX(0%);
+}
+#layout-fruit .left #g18, #layout-fruit .left #g1016, #layout-fruit .left #g1203 {
+  transform: rotate(0deg);
+}
+#layout-fruit .left .graph ul {
+  margin-right: 7.5vw;
+  direction: rtl;
+}
+#layout-fruit .left .main-text::after, #layout-fruit .left .second-text::after {
+  right: -9.5%;
+}
+#layout-fruit .left .info {
+  direction: rtl;
+}
+#layout-fruit .left .info ul {
+  border-radius: 2em 0 0 2em;
+  border-right: none;
+}
+@keyframes slide-in {
+  0% {
+    transform: translateX(130%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+#layout-fruit .right {
+  display: grid;
+  grid-area: right;
+  grid-template-areas: "graph main-info" "info logo";
+}
+#layout-fruit .right *.graph svg {
+  transform: scaleX(-1) translateX(50%);
+}
+#layout-fruit .right #g18, #layout-fruit .right #g1016, #layout-fruit .right #g1203 {
+  transform: rotate(360deg);
+}
+#layout-fruit .right .graph ul {
+  margin-left: 5em;
+  direction: ltr;
+}
+#layout-fruit .right .main-text::after, #layout-fruit .right .second-text::after {
+  left: -9.5%;
+}
+#layout-fruit .right .info {
+  direction: ltr;
+}
+#layout-fruit .right .info ul {
+  border-radius: 0 2em 2em 0;
+  border-left: none;
+}
+#layout-fruit .right #g18, #layout-fruit .right #g1016, #layout-fruit .right #g1203 {
+  transform: rotate(0deg);
+}
+@keyframes slide-in {
+  0% {
+    transform: translateX(-130%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+@keyframes rotate1 {
+  0% {
+    transform: rotate(initial); /* inner circle start*/
+  }
+  100% {
+    transform: rotate(180deg); /* inner circle stop/value */
+  }
+}
+@keyframes rotate2 {
+  0% {
+    transform: rotate(0deg); /* middle circle start*/
+  }
+  100% {
+    transform: rotate(180deg); /* middle circle stop/value */
+  }
+}
+@keyframes rotate3 {
+  0% {
+    transform: rotate(0deg); /* outer circle start*/
+  }
+  100% {
+    transform: rotate(180deg); /* outer circle stop/value */
+  }
+}
+#layout-fruit ul {
+  padding: 0;
+  list-style: none;
+}
+#layout-fruit .graph, #layout-fruit .main-info, #layout-fruit .circles {
+  box-sizing: border-box;
+  height: 70vh;
+}
+#layout-fruit .info, #layout-fruit .second-info, #layout-fruit .logo {
+  box-sizing: border-box;
+  height: 30vh;
+}
+#layout-fruit .graph {
+  grid-area: graph;
+  width: 50%;
+}
+#layout-fruit .graph .container {
+  display: flex;
+  flex-direction: column;
+  margin: 1vh 0;
+  height: 100%;
+}
+#layout-fruit .graph svg {
+  overflow: visible;
+  flex: 1 1;
+  flex-basis: 75vh;
+  min-width: 100%;
+}
+#layout-fruit .graph ul {
+  grid-area: info;
+  flex: 0 0 10%;
+  padding: 3vh;
+}
+#layout-fruit .graph ul li {
+  color: white;
+  font-size: 1.5em;
+  padding-bottom: 1em;
+  opacity: 0;
+  animation: fadein 3s forwards linear;
+}
+#layout-fruit under {
+  font-size: 0.75em;
+}
+#layout-fruit .graph ul li:nth-of-type(1) {
+  animation-delay: 6s;
+  list-style-image: url(../resources/blixt.svg);
+}
+#layout-fruit .graph ul li:nth-of-type(2) {
+  animation-delay: 8s;
+  list-style-image: url(../resources/truck.svg);
+}
+#layout-fruit .graph ul li:nth-of-type(3) {
+  animation-delay: 10s;
+  list-style-image: url(../resources/factory.svg);
+}
+#layout-fruit #g18 {
+  animation: rotate1 3s linear forwards;
+  transform-origin: 50.3% 64.1%;
+}
+#layout-fruit #g1016 {
+  animation: rotate2 3s linear forwards;
+  transform-origin: 50.3% 64.1%;
+}
+#layout-fruit #g1203 {
+  animation: rotate3 3s linear forwards;
+  transform-origin: 50.3% 64.1%;
+}
+#layout-fruit #g18 {
+  animation-delay: 4s;
+}
+#layout-fruit #g1016 {
+  animation-delay: 7s;
+}
+#layout-fruit #g1203 {
+  animation-delay: 10s;
+}
+#layout-fruit #g3533 {
+  display: none;
+}
+#layout-fruit .info {
+  grid-area: info;
+}
+#layout-fruit .info ul {
+  background-color: var(--secondary-bg-color);
+  box-shadow: 5px 10px 40px rgb(63, 62, 62);
+  font-size: 0.75em;
+  width: 60%;
+  color: white;
+  border: 3px solid;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  animation: slide-in 2s forwards;
+}
+#layout-fruit .logo {
+  grid-area: logo;
+}
+#layout-fruit .circles {
+  grid-area: main-info;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 5vh;
+  width: 50%;
+}
+#layout-fruit .circles ul {
+  padding-right: 0;
+}
+#layout-fruit .circles li {
+  border-radius: 50%;
+  margin-bottom: 3vh;
+  font-size: 1.5em;
+  opacity: 0;
+  animation: fadein 3s forwards linear;
+  background: var(--circle-bg-color);
+  color: white;
+}
+#layout-fruit .circles ul, #layout-fruit .circles li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+#layout-fruit .circles li:nth-of-type(1) {
+  animation-delay: 15s;
+}
+#layout-fruit .circles li:nth-of-type(2) {
+  animation-delay: 16s;
+}
+#layout-fruit .circles li:nth-of-type(3) {
+  background: var(--maincircle-bg-color);
+  animation-delay: 17s;
+}
+#layout-fruit .circles li:nth-of-type(4) {
+  animation-delay: 18s;
+}
+#layout-fruit .circles li:nth-of-type(5) {
+  animation-delay: 19s;
+}
+#layout-fruit .text {
+  color: white;
+  position: relative;
+  font-size: 1.3em;
+  opacity: 0;
+  animation: fadein 3s forwards linear;
+  animation-delay: 14s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+#layout-fruit .main-info, #layout-fruit .second-info, #layout-fruit .main-text, #layout-fruit .second-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#layout-fruit .main-info {
+  justify-content: center;
+  width: 50%;
+}
+#layout-fruit .main-text, #layout-fruit .second-text {
+  --width: 6%;
+  background: var(--bubble-bg-color);
+  width: 45%;
+  height: fit-content;
+  max-width: 45%;
+  border-radius: 1vh;
+  position: relative;
+  padding: 0;
+  margin-bottom: -var(--width);
+  animation: fadein 5s forwards;
+}
+#layout-fruit .main-text::after, #layout-fruit .second-text::after {
+  content: "";
+  display: block;
+  background-color: var(--bubble-bg-color);
+  height: 6vw;
+  width: var(--width);
+  border-radius: 0 0 1vw 0;
+  position: relative;
+  bottom: calc(var(--width) / -2);
+  transform: rotate(45deg);
+}
+#layout-fruit .main-text h2, #layout-fruit .second-info h2 {
+  color: burlywood;
+  font-size: 2.5vw;
+  text-align: center;
+}
+#layout-fruit .main-text p {
+  color: aliceblue;
+  font-size: 1.7vw;
+  text-align: center;
+}
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@font-face {
+  font-family: Hemi-head;
+  src: url("../resources/hemi-head-bd-it.ttf");
 }
 
 /*# sourceMappingURL=index.css.map */

@@ -1,4 +1,4 @@
-const layoutAir = document.querySelector("#layout-air");
+const layoutAir = document.querySelector("#layout-fruit");
 
 const btn = document.querySelector(".settings-btn");
 btn.addEventListener("click", function(){
@@ -7,12 +7,12 @@ btn.addEventListener("click", function(){
 
 });
 
-if(layoutAir.style.display != "none"){
-  layoutAir.addEventListener("click", function(){
-    document.querySelector(".start-image").style.display = "none";
-    document.querySelector(".methanol-image").style.display = "block";
-    document.querySelector(".air-text-box").style.display = "block";
+//if(layoutAir.style.display != "none"){
+  //layoutAir.addEventListener("click", function(){
+    //document.querySelector(".start-image").style.display = "none";
+    //document.querySelector(".methanol-image").style.display = "block";
+    //document.querySelector(".air-text-box").style.display = "block";
 
-  })
+  //})
   
-}
+//}

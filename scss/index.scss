@@ -1,5 +1,13 @@
 @import url("https://cdn.jsdelivr.net/gh/jgthms/minireset.css@master/minireset.min.css");
 
+:root {
+  --main-bg-color: rgb(20, 18, 18);
+  --secondary-bg-color: rgb(58, 57, 57);
+  --bubble-bg-color: #203354;
+  --circle-bg-color: radial-gradient(circle at 100px 100px, #5cabff, #000);
+  --maincircle-bg-color: radial-gradient(circle at 100px 100px, #d01dd6, #000);
+}
+
 html{
     background: #e0f1f5;
     background-position: bottom;
@@ -62,6 +70,7 @@ h2, h3, h4, h5, h6{
     grid-area: header;
     margin-bottom: 2rem;
   }
+
   h2 {
     font-size: 1.2rem;
     margin: 0;
@@ -276,3 +285,352 @@ h2, h3, h4, h5, h6{
   }
 
 }
+
+#layout-fruit{
+
+  display: none;
+
+  .grid{
+    display: grid;
+    grid-template-columns: 50vw 50vw;
+    grid-template-areas: "left right";
+    overflow: hidden;
+    background-color: var(--main-bg-color);
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    font-family: Hemi-head;
+    
+  }
+
+  .left{
+    display: grid;
+
+    grid-area: left;
+
+    grid-template-areas: 
+    "main-info graph"
+    "logo info";
+
+    .graph svg {
+        transform: rotate(0deg) translateX(0%);
+    }
+
+    #g18, #g1016, #g1203{
+        transform: rotate(0deg);
+    }
+
+    .graph ul{
+        margin-right: 7.5vw;
+        direction: rtl;
+    }
+
+    .main-text::after, .second-text::after{
+        right: calc(0.5% - 10%);
+    }
+
+    .info{
+        direction: rtl;
+    }
+
+    .info ul{
+        border-radius: 2em 0 0 2em;
+        border-right: none;
+    }
+
+    @keyframes slide-in {
+        0% {
+            transform: translateX(130%);
+        }
+        100% {
+            transform: translateX(0%);
+        }
+    }
+  }
+
+  .right{
+    display: grid;
+
+    grid-area: right;
+
+    grid-template-areas: 
+    "graph main-info"
+    "info logo";
+
+    *.graph svg {
+        transform: scaleX(-1) translateX(50%);
+    }
+
+    #g18, #g1016, #g1203{
+        transform: rotate(360deg);
+    }
+
+    .graph ul{
+        margin-left: 5em;
+        direction: ltr;
+    }
+
+    .main-text::after, .second-text::after{
+        left: calc(0.5% - 10%);
+    }
+
+    .info{
+        direction: ltr;
+    }
+
+    .info ul{
+        border-radius: 0 2em 2em 0;
+        border-left: none;
+    }
+
+    #g18, #g1016, #g1203{
+        transform: rotate(0deg);
+    }
+
+    @keyframes slide-in {
+        0% {
+            transform: translateX(-130%);
+        }
+        100% {
+            transform: translateX(0%);
+        }
+    }
+
+  }
+
+  @keyframes rotate1 {
+      0% {
+          transform: rotate(initial); /* inner circle start*/
+      }
+      100% {
+          transform: rotate(180deg); /* inner circle stop/value */
+      }
+  }
+  @keyframes rotate2 {
+      0% {
+          transform: rotate(0deg); /* middle circle start*/
+      }
+      100% {
+          transform: rotate(180deg); /* middle circle stop/value */
+      }
+  }
+  @keyframes rotate3 {
+      0% {
+          transform: rotate(0deg); /* outer circle start*/
+      }
+      100% {
+          transform: rotate(180deg);/* outer circle stop/value */
+      }
+  }
+
+  ul{
+      padding: 0;
+      list-style: none;
+  }
+  .graph, .main-info, .circles{
+      box-sizing: border-box;
+      height: 70vh;
+  }
+  .info, .second-info, .logo{
+      box-sizing: border-box;
+      height: 30vh;
+  }
+  .graph {
+      grid-area: graph;
+      width: 50%;
+  }
+  .graph .container{
+      display: flex;
+      flex-direction: column;
+      margin: 1vh 0;
+      height: 100%;
+  }
+  .graph svg{
+      overflow: visible;
+      flex: 1 1;
+      flex-basis: 75vh;
+      min-width: 100%;
+  }
+  .graph ul{
+    grid-area: info;
+    flex: 0 0 10%;
+    padding: 3vh;
+  }
+  .graph ul li{
+      color: white;
+      font-size: 1.5em;
+      padding-bottom: 1em;
+      opacity: 0;
+      animation: fadein 3s forwards linear;
+  }
+  under {
+      font-size: 0.75em;
+  }
+  .graph ul li:nth-of-type(1){
+      animation-delay: 6s;
+      list-style-image: url(../resources/blixt.svg);
+  }
+  .graph ul li:nth-of-type(2){
+      animation-delay: 8s;
+      list-style-image: url(../resources/truck.svg);
+  }
+  .graph ul li:nth-of-type(3){
+      animation-delay: 10s;
+      list-style-image: url(../resources/factory.svg);
+  }
+  #g18{
+      animation: rotate1 3s linear forwards;
+      transform-origin: 50.3% 64.1%;
+  }
+  #g1016{
+      animation: rotate2 3s linear forwards;
+      transform-origin: 50.3% 64.1%;
+  }
+  #g1203{
+      animation: rotate3 3s linear forwards;
+      transform-origin: 50.3% 64.1%;
+  }
+  #g18  {
+      animation-delay: 4s;
+  }
+  #g1016 {
+      animation-delay: 7s;
+  }
+  #g1203 {
+      animation-delay: 10s;
+  }
+  #g3533 {
+      display: none;
+  }
+  .info {
+      grid-area: info;
+  }
+  .info ul{
+      background-color: var(--secondary-bg-color);
+      box-shadow: 5px 10px 40px rgb(63, 62, 62);
+      font-size: 0.75em;
+      width: 60%;
+      color: white;
+      border: 3px solid;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      animation: slide-in 2s forwards; 
+  }
+  /* Item */
+  .logo {
+      grid-area: logo;
+  }
+  .circles {
+      grid-area: main-info;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 5vh;
+      width: 50%;
+  }
+  .circles ul {
+      padding-right: 0;
+  }
+  .circles li{
+      border-radius: 50%;
+      margin-bottom: 3vh;
+      font-size: 1.5em;
+      opacity: 0;
+      animation: fadein 3s forwards linear;
+      background: var(--circle-bg-color);
+      color: white;
+  }
+  .circles ul, .circles li{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+  }
+  .circles li:nth-of-type(1) {  
+      animation-delay: 15s;
+  }
+  .circles li:nth-of-type(2) {
+      animation-delay: 16s;  
+  }
+  .circles li:nth-of-type(3) {
+      background: var(--maincircle-bg-color);
+      animation-delay: 17s;
+  }
+  .circles li:nth-of-type(4) {   
+      animation-delay: 18s;
+  }
+  .circles li:nth-of-type(5) {
+      animation-delay: 19s;
+  }
+  .text {
+      color: white;
+      position: relative;
+      font-size: 1.3em;
+      opacity: 0;
+      animation: fadein 3s forwards linear;
+      animation-delay: 14s;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+  }
+  /*index*/
+  .main-info, .second-info, .main-text, .second-text{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  }
+  .main-info{
+      justify-content: center;
+      width: 50%;
+  }
+  .main-text, .second-text{
+      --width: 6%;
+      background: var(--bubble-bg-color);
+      width: 45%;
+      height: fit-content;
+      max-width: 45%;
+      border-radius: 1vh;
+      position: relative;
+      padding: 0;
+      margin-bottom: - var(--width);
+      animation: fadein 5s forwards;
+  }
+  .main-text::after, .second-text::after{
+      content: "";
+      display: block;
+      background-color: var(--bubble-bg-color);
+      height: 6vw;
+      width: var(--width);
+      border-radius: 0 0 1vw 0;
+      position: relative;
+      bottom: calc(var(--width)/-2);
+      transform: rotate(45deg);
+  }
+  .main-text h2, .second-info h2 {
+      color: burlywood;
+      font-size: 2.5vw;
+      text-align: center;
+  }
+  .main-text p{
+      color: aliceblue;
+      font-size: 1.7vw;
+      text-align: center;
+  }
+
+  @keyframes fadein {
+      0% {
+          opacity: 0;
+      }
+      100% {
+          opacity: 1;
+      }
+  }
+}
+
+@font-face { 
+  font-family: Hemi-head; src: url('../resources/hemi-head-bd-it.ttf'); 
+} 
