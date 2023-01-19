@@ -32,6 +32,13 @@ h2, h3, h4, h5, h6{
   font-family: "Century";
 }
 
+body{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 #layout-start{
 
   background: #e0f1f5;
@@ -289,15 +296,19 @@ h2, h3, h4, h5, h6{
 #layout-fruit{
 
   display: none;
+  margin-top: 5rem;
+  width: 95vw;
+  height: 85vh;
 
   .grid{
     display: grid;
-    grid-template-columns: 50vw 50vw;
+    grid-template-columns: 50% 50%;
     grid-template-areas: "left right";
     overflow: hidden;
     background-color: var(--main-bg-color);
     width: 100%;
     height: 100%;
+
     margin: 0;
     font-family: Hemi-head;
     
@@ -313,7 +324,8 @@ h2, h3, h4, h5, h6{
     "logo info";
 
     .graph svg {
-        transform: rotate(0deg) translateX(0%);
+        transform: rotate(0deg) translateX(-13%);
+        grid-area: graph;
     }
 
     #g18, #g1016, #g1203{
@@ -326,7 +338,7 @@ h2, h3, h4, h5, h6{
     }
 
     .main-text::after, .second-text::after{
-        right: calc(0.5% - 10%);
+        right: calc(0.5vw - 10vw);
     }
 
     .info{
@@ -358,7 +370,8 @@ h2, h3, h4, h5, h6{
     "info logo";
 
     *.graph svg {
-        transform: scaleX(-1) translateX(50%);
+        transform: scaleX(-1) translateX(0);
+        grid-area: graph;
     }
 
     #g18, #g1016, #g1203{
@@ -371,7 +384,7 @@ h2, h3, h4, h5, h6{
     }
 
     .main-text::after, .second-text::after{
-        left: calc(0.5% - 10%);
+        left: calc(0.5vw - 10vw);
     }
 
     .info{
@@ -400,7 +413,7 @@ h2, h3, h4, h5, h6{
 
   @keyframes rotate1 {
       0% {
-          transform: rotate(initial); /* inner circle start*/
+          transform: rotate(0deg); /* inner circle start*/
       }
       100% {
           transform: rotate(180deg); /* inner circle stop/value */
@@ -447,8 +460,8 @@ h2, h3, h4, h5, h6{
   }
   .graph svg{
       overflow: visible;
-      flex: 1 1;
-      flex-basis: 75vh;
+      /*flex: 1 1;
+      flex-basis: 75vh;*/
       min-width: 100%;
   }
   .graph ul{
@@ -478,7 +491,7 @@ h2, h3, h4, h5, h6{
       animation-delay: 10s;
       list-style-image: url(../resources/factory.svg);
   }
-  #g18{
+  /*#g18{
       animation: rotate1 3s linear forwards;
       transform-origin: 50.3% 64.1%;
   }
@@ -501,7 +514,7 @@ h2, h3, h4, h5, h6{
   }
   #g3533 {
       display: none;
-  }
+  }*/
   .info {
       grid-area: info;
   }
@@ -522,6 +535,7 @@ h2, h3, h4, h5, h6{
   .logo {
       grid-area: logo;
   }
+
   .circles {
       grid-area: main-info;
       display: flex;
@@ -530,9 +544,11 @@ h2, h3, h4, h5, h6{
       padding-top: 5vh;
       width: 50%;
   }
+
   .circles ul {
       padding-right: 0;
   }
+
   .circles li{
       border-radius: 50%;
       margin-bottom: 3vh;
@@ -542,6 +558,7 @@ h2, h3, h4, h5, h6{
       background: var(--circle-bg-color);
       color: white;
   }
+
   .circles ul, .circles li{
       display: flex;
       flex-direction: column;
@@ -549,22 +566,28 @@ h2, h3, h4, h5, h6{
       justify-content: center;
       text-align: center;
   }
+
   .circles li:nth-of-type(1) {  
       animation-delay: 15s;
   }
+
   .circles li:nth-of-type(2) {
       animation-delay: 16s;  
   }
+
   .circles li:nth-of-type(3) {
       background: var(--maincircle-bg-color);
       animation-delay: 17s;
   }
+
   .circles li:nth-of-type(4) {   
       animation-delay: 18s;
   }
+
   .circles li:nth-of-type(5) {
       animation-delay: 19s;
   }
+
   .text {
       color: white;
       position: relative;
@@ -582,11 +605,24 @@ h2, h3, h4, h5, h6{
       display: flex;
       flex-direction: column;
       align-items: center;
+
+      margin: 0 -34rem;
+
+      &.side-left{
+        margin: 0 -13rem;
+      }
   }
   .main-info{
       justify-content: center;
-      width: 50%;
+      grid-area: main-info;
+      
+      width: 50vw;      
   }
+
+  div.second-info{
+    grid-area: logo;
+  }
+
   .main-text, .second-text{
       --width: 6%;
       background: var(--bubble-bg-color);

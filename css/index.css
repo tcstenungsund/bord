@@ -31,6 +31,13 @@ h2, h3, h4, h5, h6 {
   font-family: "Century";
 }
 
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 #layout-start {
   background: #e0f1f5;
   color: #f5f5f5;
@@ -243,12 +250,39 @@ h2, h3, h4, h5, h6 {
 
 #layout-fruit {
   display: none;
+  margin-top: 5rem;
+  width: 95vw;
+  height: 85vh;
+  /*#g18{
+      animation: rotate1 3s linear forwards;
+      transform-origin: 50.3% 64.1%;
+  }
+  #g1016{
+      animation: rotate2 3s linear forwards;
+      transform-origin: 50.3% 64.1%;
+  }
+  #g1203{
+      animation: rotate3 3s linear forwards;
+      transform-origin: 50.3% 64.1%;
+  }
+  #g18  {
+      animation-delay: 4s;
+  }
+  #g1016 {
+      animation-delay: 7s;
+  }
+  #g1203 {
+      animation-delay: 10s;
+  }
+  #g3533 {
+      display: none;
+  }*/
   /* Item */
   /*index*/
 }
 #layout-fruit .grid {
   display: grid;
-  grid-template-columns: 50vw 50vw;
+  grid-template-columns: 50% 50%;
   grid-template-areas: "left right";
   overflow: hidden;
   background-color: var(--main-bg-color);
@@ -263,7 +297,8 @@ h2, h3, h4, h5, h6 {
   grid-template-areas: "main-info graph" "logo info";
 }
 #layout-fruit .left .graph svg {
-  transform: rotate(0deg) translateX(0%);
+  transform: rotate(0deg) translateX(-13%);
+  grid-area: graph;
 }
 #layout-fruit .left #g18, #layout-fruit .left #g1016, #layout-fruit .left #g1203 {
   transform: rotate(0deg);
@@ -273,7 +308,7 @@ h2, h3, h4, h5, h6 {
   direction: rtl;
 }
 #layout-fruit .left .main-text::after, #layout-fruit .left .second-text::after {
-  right: -9.5%;
+  right: -9.5vw;
 }
 #layout-fruit .left .info {
   direction: rtl;
@@ -296,7 +331,8 @@ h2, h3, h4, h5, h6 {
   grid-template-areas: "graph main-info" "info logo";
 }
 #layout-fruit .right *.graph svg {
-  transform: scaleX(-1) translateX(50%);
+  transform: scaleX(-1) translateX(0);
+  grid-area: graph;
 }
 #layout-fruit .right #g18, #layout-fruit .right #g1016, #layout-fruit .right #g1203 {
   transform: rotate(360deg);
@@ -306,7 +342,7 @@ h2, h3, h4, h5, h6 {
   direction: ltr;
 }
 #layout-fruit .right .main-text::after, #layout-fruit .right .second-text::after {
-  left: -9.5%;
+  left: -9.5vw;
 }
 #layout-fruit .right .info {
   direction: ltr;
@@ -328,7 +364,7 @@ h2, h3, h4, h5, h6 {
 }
 @keyframes rotate1 {
   0% {
-    transform: rotate(initial); /* inner circle start*/
+    transform: rotate(0deg); /* inner circle start*/
   }
   100% {
     transform: rotate(180deg); /* inner circle stop/value */
@@ -374,8 +410,8 @@ h2, h3, h4, h5, h6 {
 }
 #layout-fruit .graph svg {
   overflow: visible;
-  flex: 1 1;
-  flex-basis: 75vh;
+  /*flex: 1 1;
+  flex-basis: 75vh;*/
   min-width: 100%;
 }
 #layout-fruit .graph ul {
@@ -404,30 +440,6 @@ h2, h3, h4, h5, h6 {
 #layout-fruit .graph ul li:nth-of-type(3) {
   animation-delay: 10s;
   list-style-image: url(../resources/factory.svg);
-}
-#layout-fruit #g18 {
-  animation: rotate1 3s linear forwards;
-  transform-origin: 50.3% 64.1%;
-}
-#layout-fruit #g1016 {
-  animation: rotate2 3s linear forwards;
-  transform-origin: 50.3% 64.1%;
-}
-#layout-fruit #g1203 {
-  animation: rotate3 3s linear forwards;
-  transform-origin: 50.3% 64.1%;
-}
-#layout-fruit #g18 {
-  animation-delay: 4s;
-}
-#layout-fruit #g1016 {
-  animation-delay: 7s;
-}
-#layout-fruit #g1203 {
-  animation-delay: 10s;
-}
-#layout-fruit #g3533 {
-  display: none;
 }
 #layout-fruit .info {
   grid-area: info;
@@ -507,10 +519,18 @@ h2, h3, h4, h5, h6 {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 0 -34rem;
+}
+#layout-fruit .main-info.side-left, #layout-fruit .second-info.side-left, #layout-fruit .main-text.side-left, #layout-fruit .second-text.side-left {
+  margin: 0 -13rem;
 }
 #layout-fruit .main-info {
   justify-content: center;
-  width: 50%;
+  grid-area: main-info;
+  width: 50vw;
+}
+#layout-fruit div.second-info {
+  grid-area: logo;
 }
 #layout-fruit .main-text, #layout-fruit .second-text {
   --width: 6%;
