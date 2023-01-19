@@ -51,7 +51,7 @@ if ("NDEFReader" in window) {
   });
 } else {
   // If device have no nfc reader or browser does not support NDEFReader
-  text.innerHTML = "No nfc reader, or browser does not support NDEFReader";
+  //text.innerHTML = "No nfc reader, or browser does not support NDEFReader";
 }
 
 function webWorker() {
