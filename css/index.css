@@ -121,7 +121,7 @@ h1.firstHeader {
 }
 
 body {
-  background: url(https://img.freepik.com/free-photo/mount-mont-blanc-covered-snow-reflecting-water-evening-chamonix-france_181624-33408.jpg?w=1060&t=st=1673517939~exp=1673518539~hmac=b5592b56a3ed98b1970208efbb41eb10aee3a1c467f2aa6ee9286ba0cd343c9f);
+  background: url(../image/mountains_Background.png);
   background-size: cover;
   background-color: rgba(0, 0, 0, 0.3);
   background-blend-mode: multiply;
