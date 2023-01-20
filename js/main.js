@@ -3,7 +3,11 @@ const layoutAir = document.querySelector("#layout-fruit");
 const btn = document.querySelector(".settings-btn");
 btn.addEventListener("click", function(){
   document.querySelector("#layout-start").style.display = "none";
+  
   layoutAir.style.display = "block";
+  document.body.style.display = "flex";
+  document.body.style.justifyContent = "center";
+  document.body.style.alignItems = "center";
 
 });
 

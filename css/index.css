@@ -27,15 +27,16 @@ h1 {
   font-family: "Elephant";
 }
 
-h2, h3, h4, h5, h6 {
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: "Century";
 }
 
 body {
   height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 #layout-start {
@@ -297,18 +298,25 @@ body {
   grid-template-areas: "main-info graph" "logo info";
 }
 #layout-fruit .left .graph svg {
-  transform: rotate(0deg) translateX(-13%);
+  transform: rotateZ(90deg);
+}
+#layout-fruit .left svg {
   grid-area: graph;
 }
-#layout-fruit .left #g18, #layout-fruit .left #g1016, #layout-fruit .left #g1203 {
+#layout-fruit .left #g18,
+#layout-fruit .left #g1016,
+#layout-fruit .left #g1203 {
   transform: rotate(0deg);
 }
 #layout-fruit .left .graph ul {
   margin-right: 7.5vw;
   direction: rtl;
+  transform: translateX(-100%);
 }
-#layout-fruit .left .main-text::after, #layout-fruit .left .second-text::after {
+#layout-fruit .left .main-text::after,
+#layout-fruit .left .second-text::after {
   right: -9.5vw;
+  transform: rotate(45deg);
 }
 #layout-fruit .left .info {
   direction: rtl;
@@ -331,18 +339,25 @@ body {
   grid-template-areas: "graph main-info" "info logo";
 }
 #layout-fruit .right *.graph svg {
-  transform: scaleX(-1) translateX(0);
+  margin-top: 1rem;
+  transform: rotateZ(-90deg);
+}
+#layout-fruit .right svg {
   grid-area: graph;
 }
-#layout-fruit .right #g18, #layout-fruit .right #g1016, #layout-fruit .right #g1203 {
+#layout-fruit .right #g18,
+#layout-fruit .right #g1016,
+#layout-fruit .right #g1203 {
   transform: rotate(360deg);
 }
 #layout-fruit .right .graph ul {
   margin-left: 5em;
   direction: ltr;
 }
-#layout-fruit .right .main-text::after, #layout-fruit .right .second-text::after {
+#layout-fruit .right .main-text::after,
+#layout-fruit .right .second-text::after {
   left: -9.5vw;
+  transform: rotate(-45deg);
 }
 #layout-fruit .right .info {
   direction: ltr;
@@ -351,7 +366,9 @@ body {
   border-radius: 0 2em 2em 0;
   border-left: none;
 }
-#layout-fruit .right #g18, #layout-fruit .right #g1016, #layout-fruit .right #g1203 {
+#layout-fruit .right #g18,
+#layout-fruit .right #g1016,
+#layout-fruit .right #g1203 {
   transform: rotate(0deg);
 }
 @keyframes slide-in {
@@ -390,11 +407,15 @@ body {
   padding: 0;
   list-style: none;
 }
-#layout-fruit .graph, #layout-fruit .main-info, #layout-fruit .circles {
+#layout-fruit .graph,
+#layout-fruit .main-info,
+#layout-fruit .circles {
   box-sizing: border-box;
   height: 70vh;
 }
-#layout-fruit .info, #layout-fruit .second-info, #layout-fruit .logo {
+#layout-fruit .info,
+#layout-fruit .second-info,
+#layout-fruit .logo {
   box-sizing: border-box;
   height: 30vh;
 }
@@ -411,17 +432,18 @@ body {
 #layout-fruit .graph svg {
   overflow: visible;
   /*flex: 1 1;
-  flex-basis: 75vh;*/
+    flex-basis: 75vh;*/
   min-width: 100%;
 }
 #layout-fruit .graph ul {
   grid-area: info;
   flex: 0 0 10%;
   padding: 3vh;
+  width: max-content;
 }
 #layout-fruit .graph ul li {
   color: white;
-  font-size: 1.5em;
+  font-size: 1rem;
   padding-bottom: 1em;
   opacity: 0;
   animation: fadein 3s forwards linear;
@@ -480,7 +502,8 @@ body {
   background: var(--circle-bg-color);
   color: white;
 }
-#layout-fruit .circles ul, #layout-fruit .circles li {
+#layout-fruit .circles ul,
+#layout-fruit .circles li {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -515,14 +538,15 @@ body {
   align-items: center;
   flex-direction: column;
 }
-#layout-fruit .main-info, #layout-fruit .second-info, #layout-fruit .main-text, #layout-fruit .second-text {
+#layout-fruit .main-info,
+#layout-fruit .second-info,
+#layout-fruit .main-text,
+#layout-fruit .second-text {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0 -34rem;
-}
-#layout-fruit .main-info.side-left, #layout-fruit .second-info.side-left, #layout-fruit .main-text.side-left, #layout-fruit .second-text.side-left {
-  margin: 0 -13rem;
+  margin-top: -2rem;
+  margin-left: -7.75rem;
 }
 #layout-fruit .main-info {
   justify-content: center;
@@ -531,8 +555,10 @@ body {
 }
 #layout-fruit div.second-info {
   grid-area: logo;
+  margin-top: -4rem;
 }
-#layout-fruit .main-text, #layout-fruit .second-text {
+#layout-fruit .main-text,
+#layout-fruit .second-text {
   --width: 6%;
   background: var(--bubble-bg-color);
   width: 45%;
@@ -543,19 +569,21 @@ body {
   padding: 0;
   margin-bottom: -var(--width);
   animation: fadein 5s forwards;
+  z-index: 1;
 }
-#layout-fruit .main-text::after, #layout-fruit .second-text::after {
+#layout-fruit .main-text::after,
+#layout-fruit .second-text::after {
   content: "";
   display: block;
   background-color: var(--bubble-bg-color);
   height: 6vw;
-  width: var(--width);
-  border-radius: 0 0 1vw 0;
+  width: 6%;
   position: relative;
-  bottom: calc(var(--width) / -2);
-  transform: rotate(45deg);
+  bottom: 2.5vw;
+  z-index: 2;
 }
-#layout-fruit .main-text h2, #layout-fruit .second-info h2 {
+#layout-fruit .main-text h2,
+#layout-fruit .second-info h2 {
   color: burlywood;
   font-size: 2.5vw;
   text-align: center;
