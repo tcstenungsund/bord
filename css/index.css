@@ -123,6 +123,9 @@ body {
 #layout-air {
   display: none;
   color: #f5f5f5;
+  margin-top: 5rem;
+  width: 95vw;
+  height: 85vh;
 }
 #layout-air main {
   background: radial-gradient(at 50vw bottom, rgb(0, 0, 0) 0vw, rgb(4, 45, 59) 50vw, rgb(4, 45, 59) 100vw) no-repeat;
@@ -254,37 +257,13 @@ body {
   margin-top: 5rem;
   width: 95vw;
   height: 85vh;
-  /*#g18{
-      animation: rotate1 3s linear forwards;
-      transform-origin: 50.3% 64.1%;
-  }
-  #g1016{
-      animation: rotate2 3s linear forwards;
-      transform-origin: 50.3% 64.1%;
-  }
-  #g1203{
-      animation: rotate3 3s linear forwards;
-      transform-origin: 50.3% 64.1%;
-  }
-  #g18  {
-      animation-delay: 4s;
-  }
-  #g1016 {
-      animation-delay: 7s;
-  }
-  #g1203 {
-      animation-delay: 10s;
-  }
-  #g3533 {
-      display: none;
-  }*/
   /* Item */
   /*index*/
 }
 #layout-fruit .grid {
   display: grid;
-  grid-template-columns: 50% 50%;
-  grid-template-areas: "left right";
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas: "left center right";
   overflow: hidden;
   background-color: var(--main-bg-color);
   width: 100%;
@@ -292,36 +271,42 @@ body {
   margin: 0;
   font-family: Hemi-head;
 }
-#layout-fruit .left {
-  display: grid;
-  grid-area: left;
-  grid-template-areas: "main-info graph" "logo info";
+#layout-fruit .graph {
+  grid-area: center;
 }
-#layout-fruit .left .graph svg {
+#layout-fruit .graph .contient {
+  margin-top: -4rem;
+  display: flex;
+  flex-direction: column;
+}
+#layout-fruit .graph.left {
+  grid-area: center;
+}
+#layout-fruit .graph.left svg {
+  margin-left: -20.5%;
   transform: rotateZ(90deg);
 }
-#layout-fruit .left svg {
-  grid-area: graph;
-}
-#layout-fruit .left #g18,
-#layout-fruit .left #g1016,
-#layout-fruit .left #g1203 {
+#layout-fruit .graph.left #g18,
+#layout-fruit .graph.left #g1016,
+#layout-fruit .graph.left #g1203 {
   transform: rotate(0deg);
 }
-#layout-fruit .left .graph ul {
+#layout-fruit .graph.left ul {
+  justify-items: center;
   margin-right: 7.5vw;
+  margin-top: -5rem;
   direction: rtl;
-  transform: translateX(-100%);
+  transform: translateX(-25%);
 }
-#layout-fruit .left .main-text::after,
-#layout-fruit .left .second-text::after {
+#layout-fruit .graph.left .main-text::after,
+#layout-fruit .graph.left .second-text::after {
   right: -9.5vw;
   transform: rotate(45deg);
 }
-#layout-fruit .left .info {
+#layout-fruit .graph.left .info {
   direction: rtl;
 }
-#layout-fruit .left .info ul {
+#layout-fruit .graph.left .info ul {
   border-radius: 2em 0 0 2em;
   border-right: none;
 }
@@ -333,42 +318,40 @@ body {
     transform: translateX(0%);
   }
 }
-#layout-fruit .right {
-  display: grid;
-  grid-area: right;
-  grid-template-areas: "graph main-info" "info logo";
+#layout-fruit .graph.right {
+  grid-area: center;
 }
-#layout-fruit .right *.graph svg {
-  margin-top: 1rem;
+#layout-fruit .graph.right svg {
+  margin-left: 29.5%;
   transform: rotateZ(-90deg);
 }
-#layout-fruit .right svg {
-  grid-area: graph;
-}
-#layout-fruit .right #g18,
-#layout-fruit .right #g1016,
-#layout-fruit .right #g1203 {
+#layout-fruit .graph.right #g18,
+#layout-fruit .graph.right #g1016,
+#layout-fruit .graph.right #g1203 {
   transform: rotate(360deg);
 }
-#layout-fruit .right .graph ul {
+#layout-fruit .graph.right ul {
+  justify-items: center;
   margin-left: 5em;
+  margin-top: -5rem;
   direction: ltr;
+  transform: translateX(75%);
 }
-#layout-fruit .right .main-text::after,
-#layout-fruit .right .second-text::after {
+#layout-fruit .graph.right .main-text::after,
+#layout-fruit .graph.right .second-text::after {
   left: -9.5vw;
   transform: rotate(-45deg);
 }
-#layout-fruit .right .info {
+#layout-fruit .graph.right .info {
   direction: ltr;
 }
-#layout-fruit .right .info ul {
+#layout-fruit .graph.right .info ul {
   border-radius: 0 2em 2em 0;
   border-left: none;
 }
-#layout-fruit .right #g18,
-#layout-fruit .right #g1016,
-#layout-fruit .right #g1203 {
+#layout-fruit .graph.right #g18,
+#layout-fruit .graph.right #g1016,
+#layout-fruit .graph.right #g1203 {
   transform: rotate(0deg);
 }
 @keyframes slide-in {
@@ -378,6 +361,16 @@ body {
   100% {
     transform: translateX(0%);
   }
+}
+#layout-fruit .left {
+  display: grid;
+  grid-area: left;
+  grid-template-areas: "main-info graph" "logo info";
+}
+#layout-fruit .right {
+  display: grid;
+  grid-area: right;
+  grid-template-areas: "graph main-info" "info logo";
 }
 @keyframes rotate1 {
   0% {
@@ -419,10 +412,6 @@ body {
   box-sizing: border-box;
   height: 30vh;
 }
-#layout-fruit .graph {
-  grid-area: graph;
-  width: 50%;
-}
 #layout-fruit .graph .container {
   display: flex;
   flex-direction: column;
@@ -431,12 +420,11 @@ body {
 }
 #layout-fruit .graph svg {
   overflow: visible;
-  /*flex: 1 1;
-    flex-basis: 75vh;*/
+  flex: 1 1;
+  flex-basis: 75vh;
   min-width: 100%;
 }
 #layout-fruit .graph ul {
-  grid-area: info;
   flex: 0 0 10%;
   padding: 3vh;
   width: max-content;
@@ -463,8 +451,29 @@ body {
   animation-delay: 10s;
   list-style-image: url(../resources/factory.svg);
 }
-#layout-fruit .info {
-  grid-area: info;
+#layout-fruit #g18 {
+  animation: rotate1 3s linear forwards;
+  transform-origin: 50.3% 64.1%;
+}
+#layout-fruit #g1016 {
+  animation: rotate2 3s linear forwards;
+  transform-origin: 50.3% 64.1%;
+}
+#layout-fruit #g1203 {
+  animation: rotate3 3s linear forwards;
+  transform-origin: 50.3% 64.1%;
+}
+#layout-fruit #g18 {
+  animation-delay: 4s;
+}
+#layout-fruit #g1016 {
+  animation-delay: 7s;
+}
+#layout-fruit #g1203 {
+  animation-delay: 10s;
+}
+#layout-fruit #g3533 {
+  display: none;
 }
 #layout-fruit .info ul {
   background-color: var(--secondary-bg-color);
@@ -488,7 +497,7 @@ body {
   flex-direction: column;
   align-items: center;
   padding-top: 5vh;
-  width: 50%;
+  width: 50vw;
 }
 #layout-fruit .circles ul {
   padding-right: 0;
@@ -545,13 +554,12 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: -2rem;
   margin-left: -7.75rem;
 }
 #layout-fruit .main-info {
   justify-content: center;
   grid-area: main-info;
-  width: 50vw;
+  margin-top: -2rem;
 }
 #layout-fruit div.second-info {
   grid-area: logo;
@@ -559,15 +567,15 @@ body {
 }
 #layout-fruit .main-text,
 #layout-fruit .second-text {
-  --width: 6%;
   background: var(--bubble-bg-color);
-  width: 45%;
+  width: 25vw;
   height: fit-content;
-  max-width: 45%;
+  max-width: 25vw;
   border-radius: 1vh;
   position: relative;
   padding: 0;
-  margin-bottom: -var(--width);
+  margin-top: -2rem;
+  margin-left: 7.5rem;
   animation: fadein 5s forwards;
   z-index: 1;
 }

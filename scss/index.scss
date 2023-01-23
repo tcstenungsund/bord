@@ -138,6 +138,10 @@ body {
   display: none;
   color: #f5f5f5;
 
+  margin-top: 5rem;
+  width: 95vw;
+  height: 85vh;
+
   main {
     background: radial-gradient(
         at 50vw bottom,
@@ -303,8 +307,8 @@ body {
 
   .grid {
     display: grid;
-    grid-template-columns: 50% 50%;
-    grid-template-areas: "left right";
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: "left center right";
     overflow: hidden;
     background-color: var(--main-bg-color);
     width: 100%;
@@ -312,6 +316,115 @@ body {
 
     margin: 0;
     font-family: Hemi-head;
+  }
+
+  .graph {
+    grid-area: center;
+
+    .contient {
+      margin-top: -4rem;
+      display: flex;
+      flex-direction: column;
+    }
+
+    &.left {
+      grid-area: center;
+
+      svg {
+        margin-left: -20.5%;
+        transform: rotateZ(90deg);
+      }
+
+      #g18,
+      #g1016,
+      #g1203 {
+        transform: rotate(0deg);
+      }
+
+      ul {
+        justify-items: center;
+        margin-right: 7.5vw;
+        margin-top: -5rem;
+        direction: rtl;
+        transform: translateX(-25%);
+      }
+
+      .main-text::after,
+      .second-text::after {
+        right: calc(0.5vw - 10vw);
+        transform: rotate(45deg);
+      }
+
+      .info {
+        direction: rtl;
+      }
+
+      .info ul {
+        border-radius: 2em 0 0 2em;
+        border-right: none;
+      }
+
+      @keyframes slide-in {
+        0% {
+          transform: translateX(130%);
+        }
+        100% {
+          transform: translateX(0%);
+        }
+      }
+    }
+    &.right {
+      grid-area: center;
+
+      svg {
+        margin-left: 29.5%;
+        transform: rotateZ(-90deg);
+      }
+
+      #g18,
+      #g1016,
+      #g1203 {
+        transform: rotate(360deg);
+      }
+
+      ul {
+        justify-items: center;
+        margin-left: 5em;
+        margin-top: -5rem;
+        direction: ltr;
+        transform: translateX(75%);
+      }
+
+      .main-text::after,
+      .second-text::after {
+        left: calc(0.5vw - 10vw);
+        transform: rotate(-45deg);
+      }
+
+      .info {
+        direction: ltr;
+      }
+
+      .info ul {
+        border-radius: 0 2em 2em 0;
+        border-left: none;
+      }
+
+      #g18,
+      #g1016,
+      #g1203 {
+        transform: rotate(0deg);
+      }
+
+      @keyframes slide-in {
+        0% {
+          transform: translateX(-130%);
+        }
+        100% {
+          transform: translateX(0%);
+        }
+      }
+    }
   }
 
   .left {
@@ -322,49 +435,6 @@ body {
     grid-template-areas:
       "main-info graph"
       "logo info";
-
-    .graph svg {
-      transform: rotateZ(90deg);
-    }
-    svg {
-      grid-area: graph;
-    }
-
-    #g18,
-    #g1016,
-    #g1203 {
-      transform: rotate(0deg);
-    }
-
-    .graph ul {
-      margin-right: 7.5vw;
-      direction: rtl;
-      transform: translateX(-100%);
-    }
-
-    .main-text::after,
-    .second-text::after {
-      right: calc(0.5vw - 10vw);
-      transform: rotate(45deg);
-    }
-
-    .info {
-      direction: rtl;
-    }
-
-    .info ul {
-      border-radius: 2em 0 0 2em;
-      border-right: none;
-    }
-
-    @keyframes slide-in {
-      0% {
-        transform: translateX(130%);
-      }
-      100% {
-        transform: translateX(0%);
-      }
-    }
   }
 
   .right {
@@ -375,55 +445,6 @@ body {
     grid-template-areas:
       "graph main-info"
       "info logo";
-
-    *.graph svg {
-      margin-top: 1rem;
-      transform: rotateZ(-90deg);
-    }
-    svg {
-      grid-area: graph;
-    }
-
-    #g18,
-    #g1016,
-    #g1203 {
-      transform: rotate(360deg);
-    }
-
-    .graph ul {
-      margin-left: 5em;
-      direction: ltr;
-    }
-
-    .main-text::after,
-    .second-text::after {
-      left: calc(0.5vw - 10vw);
-      transform: rotate(-45deg);
-    }
-
-    .info {
-      direction: ltr;
-    }
-
-    .info ul {
-      border-radius: 0 2em 2em 0;
-      border-left: none;
-    }
-
-    #g18,
-    #g1016,
-    #g1203 {
-      transform: rotate(0deg);
-    }
-
-    @keyframes slide-in {
-      0% {
-        transform: translateX(-130%);
-      }
-      100% {
-        transform: translateX(0%);
-      }
-    }
   }
 
   @keyframes rotate1 {
@@ -467,10 +488,6 @@ body {
     box-sizing: border-box;
     height: 30vh;
   }
-  .graph {
-    grid-area: graph;
-    width: 50%;
-  }
   .graph .container {
     display: flex;
     flex-direction: column;
@@ -479,12 +496,11 @@ body {
   }
   .graph svg {
     overflow: visible;
-    /*flex: 1 1;
-      flex-basis: 75vh;*/
+    flex: 1 1;
+    flex-basis: 75vh;
     min-width: 100%;
   }
   .graph ul {
-    grid-area: info;
     flex: 0 0 10%;
     padding: 3vh;
     width: max-content;
@@ -503,41 +519,42 @@ body {
     animation-delay: 6s;
     list-style-image: url(../resources/blixt.svg);
   }
+
   .graph ul li:nth-of-type(2) {
     animation-delay: 8s;
     list-style-image: url(../resources/truck.svg);
   }
+
   .graph ul li:nth-of-type(3) {
     animation-delay: 10s;
     list-style-image: url(../resources/factory.svg);
   }
-  /*#g18{
-      animation: rotate1 3s linear forwards;
-      transform-origin: 50.3% 64.1%;
-  }
-  #g1016{
-      animation: rotate2 3s linear forwards;
-      transform-origin: 50.3% 64.1%;
-  }
-  #g1203{
-      animation: rotate3 3s linear forwards;
-      transform-origin: 50.3% 64.1%;
-  }
-  #g18  {
-      animation-delay: 4s;
+
+  #g18 {
+    animation: rotate1 3s linear forwards;
+    transform-origin: 50.3% 64.1%;
   }
   #g1016 {
-      animation-delay: 7s;
+    animation: rotate2 3s linear forwards;
+    transform-origin: 50.3% 64.1%;
   }
   #g1203 {
-      animation-delay: 10s;
+    animation: rotate3 3s linear forwards;
+    transform-origin: 50.3% 64.1%;
+  }
+  #g18 {
+    animation-delay: 4s;
+  }
+  #g1016 {
+    animation-delay: 7s;
+  }
+  #g1203 {
+    animation-delay: 10s;
   }
   #g3533 {
-      display: none;
-  }*/
-  .info {
-    grid-area: info;
+    display: none;
   }
+
   .info ul {
     background-color: var(--secondary-bg-color);
     box-shadow: 5px 10px 40px rgb(63, 62, 62);
@@ -551,6 +568,7 @@ body {
     justify-content: center;
     animation: slide-in 2s forwards;
   }
+
   /* Item */
   .logo {
     grid-area: logo;
@@ -562,7 +580,7 @@ body {
     flex-direction: column;
     align-items: center;
     padding-top: 5vh;
-    width: 50%;
+    width: 50vw;
   }
 
   .circles ul {
@@ -621,6 +639,7 @@ body {
     align-items: center;
     flex-direction: column;
   }
+
   /*index*/
   .main-info,
   .second-info,
@@ -629,14 +648,13 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: -2rem;
     margin-left: -7.75rem;
   }
+
   .main-info {
     justify-content: center;
     grid-area: main-info;
-
-    width: 50vw;
+    margin-top: -2rem;
   }
 
   div.second-info {
@@ -646,18 +664,19 @@ body {
 
   .main-text,
   .second-text {
-    --width: 6%;
     background: var(--bubble-bg-color);
-    width: 45%;
+    width: 25vw;
     height: fit-content;
-    max-width: 45%;
+    max-width: 25vw;
     border-radius: 1vh;
     position: relative;
     padding: 0;
-    margin-bottom: -var(--width);
+    margin-top: -2rem;
+    margin-left: 7.5rem;
     animation: fadein 5s forwards;
     z-index: 1;
   }
+
   .main-text::after,
   .second-text::after {
     content: "";
@@ -670,12 +689,14 @@ body {
 
     z-index: 2;
   }
+
   .main-text h2,
   .second-info h2 {
     color: burlywood;
     font-size: 2.5vw;
     text-align: center;
   }
+
   .main-text p {
     color: aliceblue;
     font-size: 1.7vw;
