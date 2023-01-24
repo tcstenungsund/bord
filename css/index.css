@@ -272,41 +272,48 @@ body {
   font-family: Hemi-head;
 }
 #layout-fruit .graph {
+  margin-top: 5rem;
   grid-area: center;
+  display: grid;
+  grid-template-areas: "circle circle" "info info";
 }
 #layout-fruit .graph .contient {
   margin-top: -4rem;
   display: flex;
   flex-direction: column;
 }
-#layout-fruit .graph.left {
-  grid-area: center;
+#layout-fruit .graph .circle {
+  grid-area: circle;
+  justify-self: center;
+  margin-top: -3rem;
 }
-#layout-fruit .graph.left svg {
-  margin-left: -20.5%;
-  transform: rotateZ(90deg);
+#layout-fruit .graph .contient.one {
+  grid-area: info;
+  grid-row: 2;
+  width: max-content;
+  margin-top: 3rem;
 }
-#layout-fruit .graph.left #g18,
-#layout-fruit .graph.left #g1016,
-#layout-fruit .graph.left #g1203 {
+#layout-fruit .graph .contient.one #g18,
+#layout-fruit .graph .contient.one #g1016,
+#layout-fruit .graph .contient.one #g1203 {
   transform: rotate(0deg);
 }
-#layout-fruit .graph.left ul {
+#layout-fruit .graph .contient.one ul {
   justify-items: center;
   margin-right: 7.5vw;
   margin-top: -5rem;
   direction: rtl;
   transform: translateX(-25%);
 }
-#layout-fruit .graph.left .main-text::after,
-#layout-fruit .graph.left .second-text::after {
+#layout-fruit .graph .contient.one .main-text::after,
+#layout-fruit .graph .contient.one .second-text::after {
   right: -9.5vw;
   transform: rotate(45deg);
 }
-#layout-fruit .graph.left .info {
+#layout-fruit .graph .contient.one .info {
   direction: rtl;
 }
-#layout-fruit .graph.left .info ul {
+#layout-fruit .graph .contient.one .info ul {
   border-radius: 2em 0 0 2em;
   border-right: none;
 }
@@ -318,40 +325,41 @@ body {
     transform: translateX(0%);
   }
 }
-#layout-fruit .graph.right {
-  grid-area: center;
+#layout-fruit .graph .contient.two {
+  grid-area: info;
+  grid-row: 2;
+  grid-column: 2;
+  width: max-content;
+  margin-right: 7rem;
+  margin-top: 3rem;
 }
-#layout-fruit .graph.right svg {
-  margin-left: 29.5%;
-  transform: rotateZ(-90deg);
-}
-#layout-fruit .graph.right #g18,
-#layout-fruit .graph.right #g1016,
-#layout-fruit .graph.right #g1203 {
+#layout-fruit .graph .contient.two #g18,
+#layout-fruit .graph .contient.two #g1016,
+#layout-fruit .graph .contient.two #g1203 {
   transform: rotate(360deg);
 }
-#layout-fruit .graph.right ul {
+#layout-fruit .graph .contient.two ul {
   justify-items: center;
   margin-left: 5em;
   margin-top: -5rem;
   direction: ltr;
   transform: translateX(75%);
 }
-#layout-fruit .graph.right .main-text::after,
-#layout-fruit .graph.right .second-text::after {
+#layout-fruit .graph .contient.two .main-text::after,
+#layout-fruit .graph .contient.two .second-text::after {
   left: -9.5vw;
   transform: rotate(-45deg);
 }
-#layout-fruit .graph.right .info {
+#layout-fruit .graph .contient.two .info {
   direction: ltr;
 }
-#layout-fruit .graph.right .info ul {
+#layout-fruit .graph .contient.two .info ul {
   border-radius: 0 2em 2em 0;
   border-left: none;
 }
-#layout-fruit .graph.right #g18,
-#layout-fruit .graph.right #g1016,
-#layout-fruit .graph.right #g1203 {
+#layout-fruit .graph .contient.two #g18,
+#layout-fruit .graph .contient.two #g1016,
+#layout-fruit .graph .contient.two #g1203 {
   transform: rotate(0deg);
 }
 @keyframes slide-in {
@@ -582,12 +590,14 @@ body {
 #layout-fruit .main-text::after,
 #layout-fruit .second-text::after {
   content: "";
-  display: block;
+  display: flex;
+  align-self: flex-end;
   background-color: var(--bubble-bg-color);
   height: 6vw;
-  width: 6%;
-  position: relative;
-  bottom: 2.5vw;
+  width: 6vw;
+  margin: 0 2rem -1rem 0;
+  transform: rotateZ(45deg);
+  border-radius: 50% 0 10% 0;
   z-index: 2;
 }
 #layout-fruit .main-text h2,
