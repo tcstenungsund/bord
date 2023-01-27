@@ -272,9 +272,11 @@ body {
   font-family: Hemi-head;
 }
 #layout-fruit .graph {
-  margin-top: 5rem;
+  margin-top: 4rem;
   grid-area: center;
+  width: 33vw;
   display: grid;
+  justify-self: center;
   grid-template-areas: "circle circle" "info info";
 }
 #layout-fruit .graph .contient {
@@ -290,8 +292,10 @@ body {
 #layout-fruit .graph .contient.one {
   grid-area: info;
   grid-row: 2;
+  justify-self: center;
   width: max-content;
-  margin-top: 3rem;
+  margin-top: 5rem;
+  margin-left: -17rem;
 }
 #layout-fruit .graph .contient.one #g18,
 #layout-fruit .graph .contient.one #g1016,
@@ -300,38 +304,23 @@ body {
 }
 #layout-fruit .graph .contient.one ul {
   justify-items: center;
-  margin-right: 7.5vw;
-  margin-top: -5rem;
+  margin-top: -4rem;
   direction: rtl;
-  transform: translateX(-25%);
+  transform: translateX(-20%);
 }
 #layout-fruit .graph .contient.one .main-text::after,
 #layout-fruit .graph .contient.one .second-text::after {
   right: -9.5vw;
   transform: rotate(45deg);
 }
-#layout-fruit .graph .contient.one .info {
-  direction: rtl;
-}
-#layout-fruit .graph .contient.one .info ul {
-  border-radius: 2em 0 0 2em;
-  border-right: none;
-}
-@keyframes slide-in {
-  0% {
-    transform: translateX(130%);
-  }
-  100% {
-    transform: translateX(0%);
-  }
-}
 #layout-fruit .graph .contient.two {
   grid-area: info;
   grid-row: 2;
   grid-column: 2;
+  justify-self: center;
   width: max-content;
-  margin-right: 7rem;
-  margin-top: 3rem;
+  margin-right: 4rem;
+  margin-top: 5rem;
 }
 #layout-fruit .graph .contient.two #g18,
 #layout-fruit .graph .contient.two #g1016,
@@ -341,26 +330,53 @@ body {
 #layout-fruit .graph .contient.two ul {
   justify-items: center;
   margin-left: 5em;
-  margin-top: -5rem;
+  margin-top: -4rem;
   direction: ltr;
-  transform: translateX(75%);
+  transform: translateX(70%);
 }
 #layout-fruit .graph .contient.two .main-text::after,
 #layout-fruit .graph .contient.two .second-text::after {
   left: -9.5vw;
   transform: rotate(-45deg);
 }
-#layout-fruit .graph .contient.two .info {
-  direction: ltr;
-}
-#layout-fruit .graph .contient.two .info ul {
-  border-radius: 0 2em 2em 0;
-  border-left: none;
-}
 #layout-fruit .graph .contient.two #g18,
 #layout-fruit .graph .contient.two #g1016,
 #layout-fruit .graph .contient.two #g1203 {
   transform: rotate(0deg);
+}
+#layout-fruit .container.left {
+  display: grid;
+  grid-area: left;
+  grid-template-areas: "main-info graph" "logo info";
+}
+#layout-fruit .container.left .logo {
+  margin-left: 8rem;
+  margin-right: 4rem;
+}
+#layout-fruit .container.left .circles {
+  margin-left: -4rem;
+}
+#layout-fruit .container.left ul {
+  justify-items: center;
+  margin-top: 3rem;
+  margin-left: 2rem;
+  direction: rtl;
+  transform: translateX(-20%);
+}
+#layout-fruit .container.left .info {
+  direction: rtl;
+  grid-area: logo;
+}
+#layout-fruit .container.left .info ul {
+  border-radius: 2em 0 0 2em;
+  padding: 3vh 3vh 0 8vh;
+  padding-right: 8rem;
+  border-right: none;
+  margin-right: -11rem;
+  margin-top: 2rem;
+}
+#layout-fruit .container.left ul li:first-child {
+  margin-top: -1rem;
 }
 @keyframes slide-in {
   0% {
@@ -370,15 +386,46 @@ body {
     transform: translateX(0%);
   }
 }
-#layout-fruit .left {
-  display: grid;
-  grid-area: left;
-  grid-template-areas: "main-info graph" "logo info";
-}
-#layout-fruit .right {
+#layout-fruit .container.right {
   display: grid;
   grid-area: right;
   grid-template-areas: "graph main-info" "info logo";
+}
+#layout-fruit .container.right .logo {
+  margin-right: 4rem;
+  margin-left: 6rem;
+}
+#layout-fruit .container.right .circles {
+  margin-left: 10rem;
+}
+#layout-fruit .container.right .info {
+  grid-area: logo;
+  direction: ltr;
+  margin-left: -3rem;
+}
+#layout-fruit .container.right .info ul {
+  border-radius: 0 2em 2em 0;
+  padding: 3vh 8vh 0 3vh;
+  padding-left: 8rem;
+  border-left: none;
+  margin-left: -12.5rem;
+  margin-top: 2rem;
+}
+#layout-fruit .container.right ul {
+  justify-items: center;
+  margin-top: 3rem;
+  direction: ltr;
+}
+#layout-fruit .container.right ul li:first-child {
+  margin-top: -1rem;
+}
+@keyframes slide-in {
+  0% {
+    transform: translateX(-130%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
 }
 @keyframes rotate1 {
   0% {
@@ -420,7 +467,7 @@ body {
   box-sizing: border-box;
   height: 30vh;
 }
-#layout-fruit .graph .container {
+#layout-fruit .container {
   display: flex;
   flex-direction: column;
   margin: 1vh 0;
@@ -434,7 +481,6 @@ body {
 }
 #layout-fruit .graph ul {
   flex: 0 0 10%;
-  padding: 3vh;
   width: max-content;
 }
 #layout-fruit .graph ul li {
@@ -458,6 +504,15 @@ body {
 #layout-fruit .graph ul li:nth-of-type(3) {
   animation-delay: 10s;
   list-style-image: url(../resources/factory.svg);
+}
+#layout-fruit .graph .info ul li {
+  list-style-image: none;
+}
+#layout-fruit .graph .info {
+  margin-top: 3rem;
+  height: fit-content;
+  display: flex;
+  justify-content: space-between;
 }
 #layout-fruit #g18 {
   animation: rotate1 3s linear forwards;
@@ -498,14 +553,16 @@ body {
 }
 #layout-fruit .logo {
   grid-area: logo;
+  width: 15vw;
+  margin: -12rem 0 0 0;
 }
 #layout-fruit .circles {
   grid-area: main-info;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 5vh;
-  width: 50vw;
+  padding-top: 4vh;
+  width: 25vw;
 }
 #layout-fruit .circles ul {
   padding-right: 0;
@@ -513,7 +570,7 @@ body {
 #layout-fruit .circles li {
   border-radius: 50%;
   margin-bottom: 3vh;
-  font-size: 1.5em;
+  font-size: 0.7rem;
   opacity: 0;
   animation: fadein 3s forwards linear;
   background: var(--circle-bg-color);
@@ -576,9 +633,8 @@ body {
 #layout-fruit .main-text,
 #layout-fruit .second-text {
   background: var(--bubble-bg-color);
-  width: 25vw;
   height: fit-content;
-  max-width: 25vw;
+  max-width: 23vw;
   border-radius: 1vh;
   position: relative;
   padding: 0;

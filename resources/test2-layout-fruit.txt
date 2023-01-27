@@ -1,62 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <title>Learn OL</title>
-    <link rel="canonical" href="https://learnol.com" />
-
-    <!-- Facebook Open Graph -->
-    <meta property="fb:app_id" content="123456789" />
-    <meta property="og:url" content="https://learnol.com" />
-    <meta property="og:type" content="website" />
-    <meta
-      property="og:image"
-      content="image/icons/android-chrome-192x192.png"
-    />
-    <meta property="og:image:alt" content="Hemsida logotypt" />
-    <meta property="og:site_name" content="Learn OL" />
-    <meta property="og:locale" content="sv" />
-
-    <meta name="mobile-web-app-capable" content="yes" />
-
-    <!-- Icons and Colors -->
-
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="image/icons/apple-touch-icon.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="image/icons/favicon-32x32.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="image/icons/favicon-16x16.png"
-    />
-    <!--<link rel="manifest" href="/site.webmanifest">-->
-    <link rel="manifest" href="manifest.json" />
-    <link
-      rel="mask-icon"
-      href="image/icons/safari-pinned-tab.svg"
-      color="#5bbad5"
-    />
-    <meta name="msapplication-TileColor" content="#da532c" />
-    <meta name="theme-color" content="#ffffff" />
-
-    <meta name="msapplication-config" content="/browserconfig.xml" />
-
-    <!-- Styles -->
-    <link rel="stylesheet" href="css/index.css" />
-  </head>
-  <body>
-    <div id="layout-fruit">
+<div id="layout-fruit">
       <style>
         @keyframes rotate1 {
           0% {
@@ -289,6 +231,8 @@
             </ul>
           </div>
 
+          <!-- Här ändras frukten (h1) och Företaget eller landet där den kommer ifrån(h2) -->
+
           <div class="logo">
             <img src="resources/TCstenungsund.svg" alt="" />
           </div>
@@ -306,39 +250,6 @@
         </div>
 
         <div class="container right">
-          <style>
-            @keyframes rotate1 {
-              0% {
-                transform: rotate(initial);
-              }
-              100% {
-                transform: rotate(15.8deg);
-              }
-            }
-            @keyframes rotate2 {
-              0% {
-                transform: rotate(initial);
-              }
-              100% {
-                transform: rotate(18deg);
-              }
-            }
-            @keyframes rotate3 {
-              0% {
-                transform: rotate(initial);
-              }
-              100% {
-                transform: rotate(0deg);
-              }
-            }
-            .circles li:nth-of-type(1) {
-              background: var(--maincircle-bg-color);
-            }
-            .circles li:nth-of-type(3) {
-              background: var(--circle-bg-color);
-            }
-          </style>
-
           <div class="circles">
             <div class="text">
               <h1>CO<under>2</under> Avtryck<br /></h1>
@@ -347,22 +258,24 @@
 
             <ul>
               <li style="width: calc(5em * 1.2); height: calc(5em * 1.2)">
-                Potatis
+                Sej
               </li>
               <li style="width: calc(5em * 1.4); height: calc(5em * 1.4)">
-                Knäckebröd
+                Kyckling
               </li>
               <li style="width: calc(5em * 1.6); height: calc(5em * 1.6)">
-                Matvete
+                Fläskkött
               </li>
               <li style="width: calc(5em * 1.8); height: calc(5em * 1.8)">
-                Spagetti
+                Lammkött
               </li>
               <li style="width: calc(5em * 2); height: calc(5em * 2)">
-                Jasminris
+                Nötkött
               </li>
             </ul>
           </div>
+
+          <!-- Här ändras frukten (h1) och Företaget eller landet där den kommer ifrån(h2) -->
 
           <div class="logo">
             <img src="resources/TCstenungsund.svg" alt="" />
@@ -371,7 +284,7 @@
           <div class="info">
             <ul>
               <li>
-                <h1>Potatis</h1>
+                <h1>Fläskkött</h1>
               </li>
               <li>
                 <h2>Sverige</h2>
@@ -381,85 +294,3 @@
         </div>
       </div>
     </div>
-
-    <div id="layout-start">
-      <a class="settings" href="./settings.html"
-        ><img class="settings-icon" src="image/gear.png" alt=""
-      /></a>
-      <button class="settings-btn"></button>
-
-      <button class="settings" id="refresh-btn">Refresh</button>
-
-      <main>
-        <div class="content">
-          <h1 class="nfc-info">Welcome to Project Bord!</h1>
-
-          <h1>Välkommen till Learn OL!</h1>
-
-          <h2>Enter user code:</h2>
-          <form>
-            <input type="text" placeholder="User Code" id="inputBox" />
-            <input type="submit" value="Send" id="sendBtn" onclick="login()" />
-          </form>
-          <p>
-            Klicka för att gå till
-            <a href="localhost:8080/molekylverkstan">Molekylverkstan</a>
-          </p>
-          <p>
-            Klicka för att gå till
-            <a href="localhost:8080/fruit">Fruit</a>
-          </p>
-        </div>
-
-        <!-- För att gå till inställningar för användaren -->
-        <!-- <button onclick="window.location.href = '/settings.html'" id="settings-btn">
-      Gå till settings
-    </button> -->
-
-        <!-- För att hämta Fruit-data -->
-      </main>
-
-      <main class="conterner">
-        <h1>Hej</h1>
-        <button id="scanButton">Scan</button>
-        <h2></h2>
-        <h3></h3>
-
-        <button id="fruit-btn">Se Fruit</button>
-        <button id="put-btn">Put</button>
-
-        <div class="form">
-          <form>
-            <input type="checkbox" id="is-primary" />
-            <input type="text" placeholder="User" id="user-input" />
-            <input type="text" placeholder="Page name" id="page-input" />
-            <input type="text" placeholder="Card ID" id="id-input" />
-          </form>
-          <button id="send-btn">Send</button>
-        </div>
-
-        <p id="api-content" class="nfc-output">Empty</p>
-
-        <p id="api-content"></p>
-      </main>
-    </div>
-
-    <!-- For API-requests -->
-    <script type="module" src="request.js"></script>
-
-    <!-- Other JavaScript -->
-
-    <script src="js/main.js"></script>
-    <script type="module" src="js/nfc.js"></script>
-
-    <!-- Service Worker -->
-    <script>
-      // if ("serviceWorker" in navigator) {
-      //   window.addEventListener("load", () => {
-      //     navigator.serviceWorker &&
-      //       navigator.serviceWorker.register("./sw.js");
-      //   });
-      // }
-    </script>
-  </body>
-</html>
